@@ -1,0 +1,31 @@
+---
+title: "E155 Portfolio"
+about:
+  template: solana
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/v-krishna/
+    - icon: github
+      text: Github
+      href: https://github.com/AnonymousVikram
+---
+
+Vikram Krishna is a student at [Harvey Mudd College](https://hmc.edu) studying Engineering and Computer Science.
+He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms.
+He is also a Clay-Wolkin Fellow, where he helps design and improve an open source [RISC-V Processor](https://github.com/openhwgroup/cvw).
+His personal interests include going hiking, watching Formula 1, and playing video games.
+
+## Education
+
+**Harvey Mudd College** | Claremont, CA
+
+B.S. in Engineering and Computer Science | Aug 2022 - May 2026
+
+## Experience
+
+| | | |
+| --- | --- | --- |
+| **Harvey Mudd College** | Clay-Wolkin Fellow | May 2024 - Present |
+| **Bloomberg LP** | Software Engineer | June 2024 - Aug 2024 |
+| **AirGuard Industries** | Data Scientist | June 2021 - May 2024 |
