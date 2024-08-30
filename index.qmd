@@ -17,10 +17,10 @@ He is also a Clay-Wolkin Fellow, where he helps design and improve an open sourc
 His personal interests include going hiking, watching Formula 1, and playing video games.
 
 ## Education
-
-**Harvey Mudd College** | Claremont, CA
-
-B.S. in Engineering and Computer Science | Aug 2022 - May 2026
+| | |
+| :--- | ---: |
+| **Harvey Mudd College** | Claremont, CA |
+| B.S. in Engineering and Computer Science | Aug 2022 - May 2026 |
 
 ## Experience
 

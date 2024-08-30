@@ -11,21 +11,21 @@
     "href": "index.html",
     "title": "E155 Portfolio",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "E155 Portfolio",
     "section": "Education",
-    "text": "Education\nHarvey Mudd College | Claremont, CA B.S. in Engineering and Computer Science | Aug 2022 - May 2026"
+    "text": "Education\n\n\n\nHarvey Mudd College\nClaremont, CA\n\n\nB.S. in Engineering and Computer Science\nAug 2022 - May 2026"
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
     "title": "E155 Portfolio",
     "section": "Experience",
-    "text": "Experience\nHarvey Mudd College | Clay-Wolkin Fellow | May 2024 - Present\nBloomberg L.P. | Software Engineer | June 2024 - Aug 2024\nAirGuard Industries | Data Scientist | June 2021 - May 2024"
+    "text": "Experience\n\n\n\nHarvey Mudd College\nClay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP\nSoftware Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries\nData Scientist\nJune 2021 - May 2024"
   },
   {
     "objectID": "about.html#education",
@@ -40,5 +40,19 @@
     "title": "About",
     "section": "Experience",
     "text": "Experience\n\n\n\nHarvey Mudd College\nClay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP\nSoftware Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries\nData Scientist\nJune 2021 - May 2024"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
+    "section": "",
+    "text": "Hello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
+    "section": "",
+    "text": "Hello World!"
   }
 ]
