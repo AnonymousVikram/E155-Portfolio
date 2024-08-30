@@ -1,7 +1,8 @@
 ---
 title: "E155 Portfolio"
 about:
-  template: solana
+  template: jolla
+  image: images/Vikram Krishna.png  
   links:
     - icon: linkedin
       text: LinkedIn
@@ -25,7 +26,7 @@ His personal interests include going hiking, watching Formula 1, and playing vid
 ## Experience
 
 | | | |
-| --- | --- | --- |
-| **Harvey Mudd College** | Clay-Wolkin Fellow | May 2024 - Present |
-| **Bloomberg LP** | Software Engineer | June 2024 - Aug 2024 |
-| **AirGuard Industries** | Data Scientist | June 2021 - May 2024 |
+| :--- | ---: |
+| **Harvey Mudd College** \| Clay-Wolkin Fellow | May 2024 - Present |
+| **Bloomberg LP** \| Software Engineer | June 2024 - Aug 2024 |
+| **AirGuard Industries** \| Data Scientist | June 2021 - May 2024 |
