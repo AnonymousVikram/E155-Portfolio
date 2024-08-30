@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://AnonymousVikram.github.io/E155-Portfolio/index.html</loc>
-    <lastmod>2024-08-30T05:16:31.192Z</lastmod>
-  </url>
-  <url>
     <loc>https://AnonymousVikram.github.io/E155-Portfolio/posts/first-post.html</loc>
-    <lastmod>2024-08-28T19:11:44.668Z</lastmod>
+    <lastmod>2024-08-30T05:39:48.874Z</lastmod>
   </url>
   <url>
     <loc>https://AnonymousVikram.github.io/E155-Portfolio/blog.html</loc>
-    <lastmod>2024-08-28T19:11:06.814Z</lastmod>
+    <lastmod>2024-08-30T05:39:48.874Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AnonymousVikram.github.io/E155-Portfolio/index.html</loc>
+    <lastmod>2024-08-30T05:39:48.874Z</lastmod>
   </url>
 </urlset>
