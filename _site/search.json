@@ -54,5 +54,33 @@
     "title": "Hello Quarto",
     "section": "",
     "text": "Hello World!"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "E155 Portfolio",
+    "section": "",
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
+  },
+  {
+    "objectID": "home.html#education",
+    "href": "home.html#education",
+    "title": "E155 Portfolio",
+    "section": "Education",
+    "text": "Education\n\n\n\nHarvey Mudd College\nClaremont, CA\n\n\nB.S. in Engineering and Computer Science\nAug 2022 - May 2026"
+  },
+  {
+    "objectID": "home.html#experience",
+    "href": "home.html#experience",
+    "title": "E155 Portfolio",
+    "section": "Experience",
+    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Course Website:  LINK"
   }
 ]
