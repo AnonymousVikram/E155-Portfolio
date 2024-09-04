@@ -9,4 +9,4 @@ The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to 
 ## Labs
 | Lab Number | Instructions | Report |
 | :---: | :---: | :---: |
-| 1 | [Lab 1 Instructions](https://hmc-e155.github.io/lab/lab1/) | [Lab 1 Report](lab1/lab1.qmd) |
+| 1: FPGA and MCU Setup and Testing | [Lab 1 Instructions](https://hmc-e155.github.io/lab/lab1/) | [Lab 1 Report](lab1/lab1.qmd) |

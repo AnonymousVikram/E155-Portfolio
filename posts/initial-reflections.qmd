@@ -1,0 +1,22 @@
+---
+title: "Pre-Course Reflection"
+description: "Looking at what I want to achieve from this course"
+author: "Vikram Krishna"
+date: "9/4/2024"
+categories:
+  - reflection
+draft: false
+---
+
+Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that's what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.
+
+However, all of this changed when I took E85 --- Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.
+
+With this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:
+
+* Become a lot more comfortable writing SystemVerilog, keeping in mind it's meant for synthesis of hardware
+* Build my ability to plan out and reason through datapaths
+* Learn new communication protocols and other specifics of microarchitecture
+* Create a cool final project!
+
+As with all things, I believe that the best way to learn and improve my skills is by applying it, and I can't wait to do that within this course!
