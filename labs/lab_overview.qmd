@@ -7,6 +7,6 @@ title: "Labs Overview"
 The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission.
 
 ## Labs
-| Lab Number | Instructions | Report |
-| :---: | :---: | :---: |
-| 1: FPGA and MCU Setup and Testing | [Lab 1 Instructions](https://hmc-e155.github.io/lab/lab1/) | [Lab 1 Report](lab1/lab1.qmd) |
+| Lab Number | Instructions | Report | Github Repo |
+| :---: | :---: | :---: | :---: |
+| 1: FPGA and MCU Setup and Testing | [Lab 1 Instructions](https://hmc-e155.github.io/lab/lab1/) | [Lab 1 Report](lab1/lab1.qmd) | [Lab 1 Repo](https://github.com/AnonymousVikram/e155-lab1) |

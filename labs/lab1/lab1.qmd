@@ -1,5 +1,11 @@
 ---
 title: "Lab 1"
+format:
+  html:
+    code-links:
+      - text: Github Repo
+        icon: github
+        href: https://github.com/AnonymousVikram/e155-lab1
 ---
 
 ## Overview
