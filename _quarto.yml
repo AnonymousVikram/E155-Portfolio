@@ -12,6 +12,8 @@ website:
         text: Home
       - text: Labs
         menu:
+        - text: Overview
+          href: labs/lab_overview.qmd
         - text: Lab 1
           href: labs/lab1/lab1.qmd
       - href: blog.qmd
