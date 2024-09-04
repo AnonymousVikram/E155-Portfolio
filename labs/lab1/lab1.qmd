@@ -1,3 +1,57 @@
 ---
 title: "Lab 1"
 ---
+
+## Overview
+
+Per the guidelines provided, the main goals of this lab were to:
+
+-   Assemble the E155 Dev Board
+
+-   Write a SystemVerilog Module to control a seven segment display and execute LED logic
+
+-   Program an FPGA with the Module created
+
+-   Gain confidence in building, assembling, testing, and debugging circuits
+
+-   Interface a seven segment display to the board
+
+With this in mind, my first task was to solder the dev board. Although I've had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.
+
+After soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!
+
+## Design
+
+For the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an `always_comb` block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that `led[0]` and `led[1]` could be simplified to combinational logic using a `XOR` and `AND` gate respectively, so I designed that using an `assign` statement. However, for `led[3]`, since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an `always_ff` block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off.
+
+As for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff's Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:
+
+![](images/7segcircuit.png)
+
+Then, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff's Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.
+
+$$
+V = IR
+$$
+
+$$
+R = \frac{3.3-2.1}{0.02}=60\Omega
+$$
+
+Thus, with this calculation, we know that each of the resistors in the circuit should be $60 \Omega$ .
+
+## Testing
+
+The testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a [testbench](https://github.com/AnonymousVikram/e155-lab1/blob/main/fpga/sim/testbench.sv) with all possible inputs simulated, and verified against the output. The test results are below:
+
+### Waveform
+
+![](images/sim.png){width="2528"}
+
+### Result
+
+![](images/result.png){width="2664"}
+
+## Conclusion
+
+My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab.
