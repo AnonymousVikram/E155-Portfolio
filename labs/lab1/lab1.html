@@ -66,10 +66,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -136,11 +162,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#block-diagrams" id="toc-block-diagrams" class="nav-link active" data-scroll-target="#block-diagrams">Block Diagrams</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
   <ul class="collapse">
-  <li><a href="#seven-segment-decoder" id="toc-seven-segment-decoder" class="nav-link" data-scroll-target="#seven-segment-decoder">Seven Segment Decoder</a></li>
-  <li><a href="#led-decoder" id="toc-led-decoder" class="nav-link" data-scroll-target="#led-decoder">LED Decoder</a></li>
+  <li><a href="#waveform" id="toc-waveform" class="nav-link" data-scroll-target="#waveform">Waveform</a></li>
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -166,52 +195,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="block-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="block-diagrams">Block Diagrams</h2>
-<section id="seven-segment-decoder" class="level3">
-<h3 class="anchored" data-anchor-id="seven-segment-decoder">Seven Segment Decoder</h3>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">  flowchart LR
-  dec(sevenSegmentDecoder);
-  input:::hidden;
-  output:::hidden;
-  input --&gt;|"inputHex[3:0]"| dec;
-  dec --&gt;|"segments[6:0]"| output;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Per the guidelines provided, the main goals of this lab were to:</p>
+<ul>
+<li><p>Assemble the E155 Dev Board</p></li>
+<li><p>Write a SystemVerilog Module to control a seven segment display and execute LED logic</p></li>
+<li><p>Program an FPGA with the Module created</p></li>
+<li><p>Gain confidence in building, assembling, testing, and debugging circuits</p></li>
+<li><p>Interface a seven segment display to the board</p></li>
+</ul>
+<p>With this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.</p>
+<p>After soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!</p>
 </section>
-<section id="led-decoder" class="level3">
-<h3 class="anchored" data-anchor-id="led-decoder">LED Decoder</h3>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">  flowchart LR
-  led(ledDecoder);
-  input:::hidden;
-  output:::hidden;
-  input --&gt;|"Clock"| led;
-  input --&gt;|"inputHex[3:0]"| led;
-  led --&gt;|"leds[2:0]"| output;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>dec(sevenSegmentDecoder) input -&gt;</p>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>For the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an <code>always_comb</code> block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that <code>led[0]</code> and <code>led[1]</code> could be simplified to combinational logic using a <code>XOR</code> and <code>AND</code> gate respectively, so I designed that using an <code>assign</code> statement. However, for <code>led[3]</code>, since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an <code>always_ff</code> block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off.</p>
+<p>As for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff’s Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:</p>
+<p><img src="images/7segcircuit.png" class="img-fluid"></p>
+<p>Then, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff’s Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.</p>
+<p><span class="math display">\[
+V = IR
+\]</span></p>
+<p><span class="math display">\[
+R = \frac{3.3-2.1}{0.02}=60\Omega
+\]</span></p>
+<p>Thus, with this calculation, we know that each of the resistors in the circuit should be <span class="math inline">\(60 \Omega\)</span> .</p>
+</section>
+<section id="testing" class="level2">
+<h2 class="anchored" data-anchor-id="testing">Testing</h2>
+<p>The testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a <a href="https://github.com/AnonymousVikram/e155-lab1/blob/main/fpga/sim/testbench.sv">testbench</a> with all possible inputs simulated, and verified against the output. The test results are below:</p>
+<section id="waveform" class="level3">
+<h3 class="anchored" data-anchor-id="waveform">Waveform</h3>
+<p><img src="images/sim.png" class="img-fluid" width="2528"></p>
+</section>
+<section id="result" class="level3">
+<h3 class="anchored" data-anchor-id="result">Result</h3>
+<p><img src="images/result.png" class="img-fluid" width="2664"></p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
