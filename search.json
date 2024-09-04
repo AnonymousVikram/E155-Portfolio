@@ -7,11 +7,32 @@
     "text": "Course Website:  Link"
   },
   {
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
+    "section": "",
+    "text": "Hello World!"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "flowchart LR\n  dec(sevenSegmentDecoder);\n  input:::hidden;\n  output:::hidden;\n  input --&gt;|\"inputHex[3:0]\"| dec;\n  dec --&gt;|\"segments[6:0]\"| output;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  flowchart LR\n  led(ledDecoder);\n  input:::hidden;\n  output:::hidden;\n  input --&gt;|\"Clock\"| led;\n  input --&gt;|\"inputHex[3:0]\"| led;\n  led --&gt;|\"leds[2:0]\"| output;\n\n\n\n\n\n\ndec(sevenSegmentDecoder) input -&gt;"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#block-diagrams",
+    "href": "labs/lab1/lab1.html#block-diagrams",
+    "title": "Lab 1",
+    "section": "",
+    "text": "flowchart LR\n  dec(sevenSegmentDecoder);\n  input:::hidden;\n  output:::hidden;\n  input --&gt;|\"inputHex[3:0]\"| dec;\n  dec --&gt;|\"segments[6:0]\"| output;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  flowchart LR\n  led(ledDecoder);\n  input:::hidden;\n  output:::hidden;\n  input --&gt;|\"Clock\"| led;\n  input --&gt;|\"inputHex[3:0]\"| led;\n  led --&gt;|\"leds[2:0]\"| output;\n\n\n\n\n\n\ndec(sevenSegmentDecoder) input -&gt;"
+  },
+  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "E155 Blog",
     "section": "",
-    "text": "Hello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
+    "text": "Pre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "home.html",
@@ -35,10 +56,31 @@
     "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
   },
   {
-    "objectID": "posts/first-post.html",
-    "href": "posts/first-post.html",
-    "title": "Hello Quarto",
+    "objectID": "labs/lab_overview.html",
+    "href": "labs/lab_overview.html",
+    "title": "Labs Overview",
     "section": "",
-    "text": "Hello World!"
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+  },
+  {
+    "objectID": "labs/lab_overview.html#background",
+    "href": "labs/lab_overview.html#background",
+    "title": "Labs Overview",
+    "section": "",
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+  },
+  {
+    "objectID": "labs/lab_overview.html#labs",
+    "href": "labs/lab_overview.html#labs",
+    "title": "Labs Overview",
+    "section": "Labs",
+    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report"
+  },
+  {
+    "objectID": "posts/initial-reflections.html",
+    "href": "posts/initial-reflections.html",
+    "title": "Pre-Course Reflection",
+    "section": "",
+    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
   }
 ]

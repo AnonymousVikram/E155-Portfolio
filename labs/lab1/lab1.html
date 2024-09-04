@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -98,6 +101,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
         <li>
+    <a class="dropdown-item" href="../../labs/lab_overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../labs/lab1/lab1.html">
  <span class="dropdown-text">Lab 1</span></a>
   </li>  
@@ -124,8 +131,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#block-diagrams" id="toc-block-diagrams" class="nav-link active" data-scroll-target="#block-diagrams">Block Diagrams</a>
+  <ul class="collapse">
+  <li><a href="#seven-segment-decoder" id="toc-seven-segment-decoder" class="nav-link" data-scroll-target="#seven-segment-decoder">Seven Segment Decoder</a></li>
+  <li><a href="#led-decoder" id="toc-led-decoder" class="nav-link" data-scroll-target="#led-decoder">LED Decoder</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -149,8 +166,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="block-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="block-diagrams">Block Diagrams</h2>
+<section id="seven-segment-decoder" class="level3">
+<h3 class="anchored" data-anchor-id="seven-segment-decoder">Seven Segment Decoder</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">  flowchart LR
+  dec(sevenSegmentDecoder);
+  input:::hidden;
+  output:::hidden;
+  input --&gt;|"inputHex[3:0]"| dec;
+  dec --&gt;|"segments[6:0]"| output;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="led-decoder" class="level3">
+<h3 class="anchored" data-anchor-id="led-decoder">LED Decoder</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">  flowchart LR
+  led(ledDecoder);
+  input:::hidden;
+  output:::hidden;
+  input --&gt;|"Clock"| led;
+  input --&gt;|"inputHex[3:0]"| led;
+  led --&gt;|"leds[2:0]"| output;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>dec(sevenSegmentDecoder) input -&gt;</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
