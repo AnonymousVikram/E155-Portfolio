@@ -1,0 +1,15 @@
+---
+title: "Week 1 Reflection"
+description: "Looking back at week 1"
+author: "Vikram Krishna"
+date: "9/9/2024"
+categories:
+  - reflection
+draft: false
+---
+
+This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.
+
+I modeled mine after the ones provided in E85, as well as those explained in [Digital Design and Computer Architecture](https://www.amazon.com/Digital-Design-Computer-Architecture-Harris/dp/0123944244/ref=sr_1_3?dchild=1&sr=8-3) by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.
+
+My testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I'm glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course.
