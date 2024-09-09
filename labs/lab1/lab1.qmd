@@ -43,7 +43,7 @@ V = IR
 $$
 
 $$
-R = \frac{3.3-2.1}{0.02}=60\Omega
+R_1 = \frac{3.3-2.1}{0.02}=60\Omega
 $$
 
 Thus, with this calculation, we know that each of the resistors in the circuit should be $60 \Omega$ .
