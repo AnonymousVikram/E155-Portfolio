@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
     "section": "",
-    "text": "Course Website:  Link"
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Home",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Home",
+    "section": "Experience",
+    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
   },
   {
     "objectID": "posts/initial-reflections.html",
@@ -84,24 +98,10 @@
     "text": "Hello World!"
   },
   {
-    "objectID": "home.html",
-    "href": "home.html",
-    "title": "E155 Portfolio",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
-  },
-  {
-    "objectID": "home.html#education",
-    "href": "home.html#education",
-    "title": "E155 Portfolio",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
-  },
-  {
-    "objectID": "home.html#experience",
-    "href": "home.html#experience",
-    "title": "E155 Portfolio",
-    "section": "Experience",
-    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
+    "text": "Course Website:  Link"
   }
 ]
