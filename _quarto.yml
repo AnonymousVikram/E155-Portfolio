@@ -6,7 +6,7 @@ website:
   navbar:
     tools:
       - icon: github
-        href: https://github.com/AnonymousVikram
+        href: https://github.com/AnonymousVikram/E155-Portfolio
     left:
       - href: home.qmd
         text: Home
