@@ -7,11 +7,18 @@
     "text": "Course Website:  Link"
   },
   {
-    "objectID": "posts/first-post.html",
-    "href": "posts/first-post.html",
-    "title": "Hello Quarto",
+    "objectID": "posts/initial-reflections.html",
+    "href": "posts/initial-reflections.html",
+    "title": "Pre-Course Reflection",
     "section": "",
-    "text": "Hello World!"
+    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
+    "section": "",
+    "text": "Pre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "labs/lab1/lab1.html",
@@ -49,34 +56,6 @@
     "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
-    "section": "",
-    "text": "Pre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "home.html",
-    "href": "home.html",
-    "title": "E155 Portfolio",
-    "section": "",
-    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
-  },
-  {
-    "objectID": "home.html#education",
-    "href": "home.html#education",
-    "title": "E155 Portfolio",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
-  },
-  {
-    "objectID": "home.html#experience",
-    "href": "home.html#experience",
-    "title": "E155 Portfolio",
-    "section": "Experience",
-    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
-  },
-  {
     "objectID": "labs/lab_overview.html",
     "href": "labs/lab_overview.html",
     "title": "Labs Overview",
@@ -98,10 +77,31 @@
     "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo"
   },
   {
-    "objectID": "posts/initial-reflections.html",
-    "href": "posts/initial-reflections.html",
-    "title": "Pre-Course Reflection",
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
     "section": "",
-    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+    "text": "Hello World!"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "E155 Portfolio",
+    "section": "",
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
+  },
+  {
+    "objectID": "home.html#education",
+    "href": "home.html#education",
+    "title": "E155 Portfolio",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
+  },
+  {
+    "objectID": "home.html#experience",
+    "href": "home.html#experience",
+    "title": "E155 Portfolio",
+    "section": "Experience",
+    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
   }
 ]
