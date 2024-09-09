@@ -1,5 +1,5 @@
 ---
-title: "E155 Portfolio"
+title: "Home"
 about:
   template: jolla
   image: images/Vikram Krishna.png  
