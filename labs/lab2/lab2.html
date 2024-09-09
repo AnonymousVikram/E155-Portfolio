@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 1 – E155 Portfolio</title>
+<title>Lab 2 – E155 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,14 +170,14 @@ window.Quarto = {
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/AnonymousVikram/e155-lab1"><i class="bi bi-github"></i>Github Repo</a></li></ul></div></nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/AnonymousVikram/e155-lab2"><i class="bi bi-github"></i>Github Repo</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 1</h1>
+<h1 class="title">Lab 2</h1>
 </div>
 
 
@@ -198,14 +198,9 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Per the guidelines provided, the main goals of this lab were to:</p>
 <ul>
-<li><p>Assemble the E155 Dev Board</p></li>
-<li><p>Write a SystemVerilog Module to control a seven segment display and execute LED logic</p></li>
-<li><p>Program an FPGA with the Module created</p></li>
-<li><p>Gain confidence in building, assembling, testing, and debugging circuits</p></li>
-<li><p>Interface a seven segment display to the board</p></li>
+<li><p>Learn about and implement time multiplexing to drive two seven-segment displays</p></li>
+<li><p>Use transistors to provide greater current to drive the displays using FPGA GPIO Pins</p></li>
 </ul>
-<p>With this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.</p>
-<p>After soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!</p>
 </section>
 <section id="design" class="level2">
 <h2 class="anchored" data-anchor-id="design">Design</h2>
@@ -218,7 +213,7 @@ window.Quarto = {
 V = IR
 \]</span></p>
 <p><span class="math display">\[
-R_1 = \frac{3.3-2.1}{0.02}=60\Omega
+R = \frac{3.3-2.1}{0.02}=60\Omega
 \]</span></p>
 <p>Thus, with this calculation, we know that each of the resistors in the circuit should be <span class="math inline">\(60 \Omega\)</span> .</p>
 </section>
