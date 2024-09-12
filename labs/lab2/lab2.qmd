@@ -16,38 +16,42 @@ Per the guidelines provided, the main goals of this lab were to:
 
 -   Use transistors to provide greater current to drive the displays using FPGA GPIO Pins
 
+This involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.
 
+I wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!
 
 
 ## Design
 
-For the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an `always_comb` block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that `led[0]` and `led[1]` could be simplified to combinational logic using a `XOR` and `AND` gate respectively, so I designed that using an `assign` statement. However, for `led[3]`, since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an `always_ff` block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off. This explanation can be visualized using the diagram below:
+For the SystemVerilog top module (`lab2_vk`), I only ended up using one submodule, the seven-segment display module created in [Lab 1](https://github.com/AnonymousVikram/e155-lab1). I then used a similar counter from my `ledDecoder` to implement the time multiplexing. I also simply added together the values of the two switches to get the sum. The block diagram for this design can be seen in @fig-block-diagram:
 
+::: {#fig-block-diagram}
 ![](images/blockdiagram.png)
 
-As for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff's Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:
+Block Diagram of my SystemVerilog Design
+:::
 
-![](images/7segcircuit.png)
-
-Then, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff's Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.
-
+As for the circuit, it was largely based off of the values calculated from [Lab 1](https://github.com/AnonymousVikram/e155-lab1). But, with the added transistors, there was the need for a current-limiting resistor. From the datasheet for the iCE40UP, we can determine that the maximum current draw should be 8 $mA$. Plugging this into Ohm's Law ($V = IR$), with $V = 3.3V$ and I = $0.008A$, we get that
 $$
-V = IR
+R \geq \frac{3.3}{0.008} = 412.5\Omega
 $$
 
-$$
-R = \frac{3.3-2.1}{0.02}=60\Omega
-$$
+With the resistor values available in the lab, I went with $470 \Omega$ resistors. This schematic can be seen in @fig-circuit-diagram
 
-Thus, with this calculation, we know that each of the resistors in the circuit should be $60 \Omega$ .
+::: {#fig-circuit-diagram}
+![](images/circuitdiagram.png)
+
+Circuit Diagram of my physical implementation
+::::
+
 
 ## Testing
 
-The testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a [testbench](https://github.com/AnonymousVikram/e155-lab1/blob/main/fpga/sim/testbench.sv) with all possible inputs simulated, and verified against the output. The test results are below:
+The testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in $2^8 \cdot 2 = 512$ testcases. Thus this week, I wrote a [Python script](https://github.com/AnonymousVikram/e155-lab2/blob/main/fpga/sim/testgen.py) to generate the test vectors. The test results are below:
 
 ### Waveform
 
-![](images/sim.png){width="2528"}
+![](images/waveform.png){width="2528"}
 
 ### Result
 
@@ -55,4 +59,4 @@ The testing for this lab was quite straightforward, given the only inputs were f
 
 ## Conclusion
 
-My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab.
+My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab.
