@@ -1,0 +1,15 @@
+---
+title: "Week 2 Reflection"
+description: "Automated Testing"
+author: "Vikram Krishna"
+date: "9/11/2024"
+categories:
+  - reflection
+draft: false
+---
+
+Building on what I did last week, I think I'm getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a `.tv` file with all the inputs.
+
+I think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!
+
+Going forward though, I think I'll tap into another aspect of my CS background and implement unit testing. I'm getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own.

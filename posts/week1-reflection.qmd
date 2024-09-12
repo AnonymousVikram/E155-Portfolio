@@ -1,6 +1,6 @@
 ---
 title: "Week 1 Reflection"
-description: "Looking back at week 1"
+description: "Testbenches"
 author: "Vikram Krishna"
 date: "9/9/2024"
 categories:
