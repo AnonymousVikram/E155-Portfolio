@@ -175,9 +175,11 @@ ul.task-list li input[type="checkbox"] {
 <p>The first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.</p>
 <p>The LUT for this was quite straight-forward, and did not require much thought on my part.</p>
 <p>The control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: <code>WAIT</code>, <code>INPUT</code>, <code>HOLD</code>, <code>DEBOUNCE</code>. Any time the <code>row</code> input was not detected as <code>1111</code>, the FSM proceeds to the <code>INPUT</code> state, and exerts the <code>keyInputValid</code> signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the <code>INPUT</code> state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the <code>HOLD</code> state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.</p>
+<p>This debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof.&nbsp;Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementationn, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.</p>
 <p>With this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.</p>
 <p><strong>?@fig-fsm-diagram</strong> shows the FSM logic, while <strong>?@fig-block-diagram</strong> shows the block diagram for my top module. ::: {<strong>?@fig-fsm-diagram</strong>} <img src="images/fsmdiagram.png" class="img-fluid"></p>
 <p>FSM Diagram of column output and key decoding logic. :::</p>
+<p>The table for this logic is as follows: | Current State | in | Next State | keypadInput | |—————|—-|————|——————-| | WAIT | 0 | WAIT | x | | WAIT | 1 | INPUT | LUT[{rows, cols}] | | INPUT | 0 | DEBOUNCE | x | | INPUT | 1 | HOLD | x | | HOLD | 0 | DEBOUNCE | x | | HOLD | 1 | HOLD | x | | DEBOUNCE | 0 | WAIT | x | | DEBOUNCE | 1 | HOLD | x |</p>
 <div class="{@fig-block-diagram}">
 <p><img src="images/blockdiagram.png" class="img-fluid"></p>
 <p>Block Diagram of top level module.</p>
@@ -187,14 +189,11 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/circuitdiagram.png" class="img-fluid"></p>
 <section id="testing" class="level2">
 <h2 class="anchored" data-anchor-id="testing">Testing</h2>
-<p>For this lab, inspired by Prof.&nbsp;Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. These waveforms can be seen below:</p>
+<p>For this lab, inspired by Prof.&nbsp;Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:</p>
 <section id="waveform" class="level3">
 <h3 class="anchored" data-anchor-id="waveform">Waveform</h3>
 <p><img src="images/waveform.png" class="img-fluid" width="2528"></p>
-</section>
-<section id="result" class="level3">
-<h3 class="anchored" data-anchor-id="result">Result</h3>
-<p><img src="images/result.png" class="img-fluid" width="2664"></p>
+<p>Since the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
