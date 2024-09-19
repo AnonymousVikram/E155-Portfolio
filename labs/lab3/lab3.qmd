@@ -29,19 +29,29 @@ The control for how the columns are sampled though, is where the logic gets tric
 
 With this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.
 
-An [FSM Diagram](@fig-fsm-diagram) and Block Diagram of this logic can be seen below.
-::: {$fig-fsm-diagram}
+@fig-fsm-diagram shows the FSM logic, while @fig-block-diagram shows the block diagram for my top module.
+::: {@fig-fsm-diagram}
 ![](images/fsmdiagram.png)
 
-FSM Diagram  of column and key decoding logic
+FSM Diagram of column output and key decoding logic.
 :::
 
+::: {@fig-block-diagram}
+![](images/blockdiagram.png)
+
+Block Diagram of top level module.
+:::
+
+As for the wiring of the circuit, the same calculations as [Lab 2](https://github.com/AnonymousVikram/e155-lab2) were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in @fig-circuit-diagram
+
+::: {@fig-circuit-diagram}
+![](images/circuitdiagram.png)
 
 
 
 ## Testing
 
-The testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in $2^8 \cdot 2 = 512$ testcases. Thus this week, I wrote a [Python script](https://github.com/AnonymousVikram/e155-lab2/blob/main/fpga/sim/testgen.py) to generate the test vectors. The test results are below:
+For this lab, inspired by Prof. Brake's advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it's working as intended. These waveforms can be seen below:
 
 ### Waveform
 
@@ -53,4 +63,4 @@ The testing for this lab was a little more complicated than Lab 1. There were tw
 
 ## Conclusion
 
-My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab.
+My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab.
