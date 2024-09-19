@@ -1,0 +1,56 @@
+---
+title: "Lab 3"
+format:
+  html:
+    code-links:
+      - text: Github Repo
+        icon: github
+        href: https://github.com/AnonymousVikram/e155-lab3
+---
+
+## Overview
+
+From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we've learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing.
+
+
+## Design
+
+This was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldnt've made sense to leave too many things together.
+
+The first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.
+
+For the keypad decoding FSM, I must admit I think my SystemVerilog isn't the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.
+
+The first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button  pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input. 
+
+The LUT for this was quite straight-forward, and did not require much thought on my part.
+
+The control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: `WAIT`, `INPUT`, `HOLD`, `DEBOUNCE`. Any time the `row` input was not detected as `1111`, the FSM proceeds to the `INPUT` state, and exerts the `keyInputValid` signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the `INPUT` state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the `HOLD` state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.
+
+With this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.
+
+An [FSM Diagram](@fig-fsm-diagram) and Block Diagram of this logic can be seen below.
+::: {$fig-fsm-diagram}
+![](images/fsmdiagram.png)
+
+FSM Diagram  of column and key decoding logic
+:::
+
+
+
+
+## Testing
+
+The testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in $2^8 \cdot 2 = 512$ testcases. Thus this week, I wrote a [Python script](https://github.com/AnonymousVikram/e155-lab2/blob/main/fpga/sim/testgen.py) to generate the test vectors. The test results are below:
+
+### Waveform
+
+![](images/waveform.png){width="2528"}
+
+### Result
+
+![](images/result.png){width="2664"}
+
+## Conclusion
+
+My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab.
