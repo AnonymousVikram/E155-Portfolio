@@ -11,3 +11,4 @@ The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to 
 | :---: | :---: | :---: | :---: |
 | 1: FPGA and MCU Setup and Testing | [Lab 1 Instructions](https://hmc-e155.github.io/lab/lab1/) | [Lab 1 Report](lab1/lab1.qmd) | [Lab 1 Repo](https://github.com/AnonymousVikram/e155-lab1) |
 | 2: Multiplexed 7-Segment Display | [Lab 2 Instructions](https://hmc-e155.github.io/lab/lab2/) | [Lab 2 Report](lab2/lab2.qmd) | [Lab 2 Repo](https://github.com/AnonymousVikram/e155-lab2) |
+| 3: Keypad Scanner | [Lab 3 Instructions](https://hmc-e155.github.io/lab/lab3/) | [Lab 3 Report](lab3/lab3/qmd) | [Lab 3 Repo](https://github.com/AnonymousVikram/e155-lab3)
