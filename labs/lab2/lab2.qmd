@@ -42,7 +42,7 @@ With the resistor values available in the lab, I went with $470 \Omega$ resistor
 ![](images/circuitdiagram.png)
 
 Circuit Diagram of my physical implementation
-::::
+:::
 
 
 ## Testing

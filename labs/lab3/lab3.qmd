@@ -15,7 +15,7 @@ From the lab manual, this lab was the culmination of the first three weeks of cl
 
 ## Design
 
-This was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldnt've made sense to leave too many things together.
+This was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldn't have made sense to leave too many things together.
 
 The first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.
 
@@ -27,11 +27,12 @@ The LUT for this was quite straight-forward, and did not require much thought on
 
 The control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: `WAIT`, `INPUT`, `HOLD`, `DEBOUNCE`. Any time the `row` input was not detected as `1111`, the FSM proceeds to the `INPUT` state, and exerts the `keyInputValid` signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the `INPUT` state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the `HOLD` state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.
 
-This debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn't too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I  heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementationn, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.
+This debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn't too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I  heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementation, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.
 
 With this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.
 
 @fig-fsm-diagram shows the FSM logic, while @fig-block-diagram shows the block diagram for my top module.
+
 ::: {#fig-fsm-diagram}
 ![](images/fsmdiagram.png)
 
@@ -39,8 +40,9 @@ FSM Diagram of column output and key decoding logic.
 :::
 
 The table for this logic is as follows:
+
 | Current State | in | Next State | keypadInput       |
-|---------------|----|------------|-------------------|
+|---|---|---|---|
 | WAIT          | 0  | WAIT       | x                 |
 | WAIT          | 1  | INPUT      | LUT[{rows, cols}] |
 | INPUT         | 0  | DEBOUNCE   | x                 |
@@ -61,11 +63,13 @@ As for the wiring of the circuit, the same calculations as [Lab 2](https://githu
 ::: {#fig-circuit-diagram}
 ![](images/circuitdiagram.png)
 
+Circuit diagram showing the connections in and out of the FPGA.
+:::
 
 
 ## Testing
 
-For this lab, inspired by Prof. Brake's advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it's working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:
+For this lab, inspired by Prof. Brake's advice, I implemented unit testing. Instead of making a massive test file for my top module with a variety of inputs, I decided to test each of my submodules and make sure it's working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:
 
 ### Waveform
 
