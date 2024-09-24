@@ -1,59 +1,66 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
     "section": "",
-    "text": "Course Website:  Link"
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
   },
   {
-    "objectID": "posts/week1-reflection.html",
-    "href": "posts/week1-reflection.html",
-    "title": "Week 1 Reflection",
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Home",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Home",
+    "section": "Experience",
+    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
+  },
+  {
+    "objectID": "posts/week2-reflection.html",
+    "href": "posts/week2-reflection.html",
+    "title": "Week 2 Reflection",
     "section": "",
-    "text": "This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.\nI modeled mine after the ones provided in E85, as well as those explained in Digital Design and Computer Architecture by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.\nMy testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I’m glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course."
+    "text": "Building on what I did last week, I think I’m getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a .tv file with all the inputs.\nI think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!\nGoing forward though, I think I’ll tap into another aspect of my CS background and implement unit testing. I’m getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own."
   },
   {
-    "objectID": "posts/first-post.html",
-    "href": "posts/first-post.html",
-    "title": "Hello Quarto",
+    "objectID": "posts/initial-reflections.html",
+    "href": "posts/initial-reflections.html",
+    "title": "Pre-Course Reflection",
     "section": "",
-    "text": "Hello World!"
+    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
   },
   {
-    "objectID": "labs/lab3/lab3.html",
-    "href": "labs/lab3/lab3.html",
-    "title": "Lab 3",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
     "section": "",
-    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
+    "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "labs/lab3/lab3.html#overview",
-    "href": "labs/lab3/lab3.html#overview",
-    "title": "Lab 3",
+    "objectID": "labs/lab_overview.html",
+    "href": "labs/lab_overview.html",
+    "title": "Labs Overview",
     "section": "",
-    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
   },
   {
-    "objectID": "labs/lab3/lab3.html#design",
-    "href": "labs/lab3/lab3.html#design",
-    "title": "Lab 3",
-    "section": "Design",
-    "text": "Design\nThis was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldnt’ve made sense to leave too many things together.\nThe first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.\nFor the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.\nThe first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.\nThe LUT for this was quite straight-forward, and did not require much thought on my part.\nThe control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: WAIT, INPUT, HOLD, DEBOUNCE. Any time the row input was not detected as 1111, the FSM proceeds to the INPUT state, and exerts the keyInputValid signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the INPUT state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the HOLD state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.\nThis debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementationn, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.\nWith this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.\n?@fig-fsm-diagram shows the FSM logic, while ?@fig-block-diagram shows the block diagram for my top module. ::: {?@fig-fsm-diagram} \nFSM Diagram of column output and key decoding logic. :::\nThe table for this logic is as follows: | Current State | in | Next State | keypadInput | |—————|—-|————|——————-| | WAIT | 0 | WAIT | x | | WAIT | 1 | INPUT | LUT[{rows, cols}] | | INPUT | 0 | DEBOUNCE | x | | INPUT | 1 | HOLD | x | | HOLD | 0 | DEBOUNCE | x | | HOLD | 1 | HOLD | x | | DEBOUNCE | 0 | WAIT | x | | DEBOUNCE | 1 | HOLD | x |\n\n\nBlock Diagram of top level module.\n\nAs for the wiring of the circuit, the same calculations as Lab 2 were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in ?@fig-circuit-diagram\n\n\n\nTesting\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times.\n\n\n\nConclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
+    "objectID": "labs/lab_overview.html#background",
+    "href": "labs/lab_overview.html#background",
+    "title": "Labs Overview",
+    "section": "",
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
   },
   {
-    "objectID": "labs/lab3/lab3.html#testing",
-    "href": "labs/lab3/lab3.html#testing",
-    "title": "Lab 3",
-    "section": "Testing",
-    "text": "Testing\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#conclusion",
-    "href": "labs/lab3/lab3.html#conclusion",
-    "title": "Lab 3",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
+    "objectID": "labs/lab_overview.html#labs",
+    "href": "labs/lab_overview.html#labs",
+    "title": "Labs Overview",
+    "section": "Labs",
+    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo"
   },
   {
     "objectID": "labs/lab1/lab1.html",
@@ -91,34 +98,6 @@
     "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
-    "section": "",
-    "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Home",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Home",
-    "section": "Experience",
-    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
-  },
-  {
     "objectID": "labs/lab2/lab2.html",
     "href": "labs/lab2/lab2.html",
     "title": "Lab 2",
@@ -154,38 +133,59 @@
     "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab."
   },
   {
-    "objectID": "labs/lab_overview.html",
-    "href": "labs/lab_overview.html",
-    "title": "Labs Overview",
+    "objectID": "labs/lab3/lab3.html",
+    "href": "labs/lab3/lab3.html",
+    "title": "Lab 3",
     "section": "",
-    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
   },
   {
-    "objectID": "labs/lab_overview.html#background",
-    "href": "labs/lab_overview.html#background",
-    "title": "Labs Overview",
+    "objectID": "labs/lab3/lab3.html#overview",
+    "href": "labs/lab3/lab3.html#overview",
+    "title": "Lab 3",
     "section": "",
-    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
   },
   {
-    "objectID": "labs/lab_overview.html#labs",
-    "href": "labs/lab_overview.html#labs",
-    "title": "Labs Overview",
-    "section": "Labs",
-    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo"
+    "objectID": "labs/lab3/lab3.html#design",
+    "href": "labs/lab3/lab3.html#design",
+    "title": "Lab 3",
+    "section": "Design",
+    "text": "Design\nThis was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldnt’ve made sense to leave too many things together.\nThe first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.\nFor the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.\nThe first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.\nThe LUT for this was quite straight-forward, and did not require much thought on my part.\nThe control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: WAIT, INPUT, HOLD, DEBOUNCE. Any time the row input was not detected as 1111, the FSM proceeds to the INPUT state, and exerts the keyInputValid signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the INPUT state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the HOLD state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.\nThis debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementationn, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.\nWith this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.\n?@fig-fsm-diagram shows the FSM logic, while ?@fig-block-diagram shows the block diagram for my top module. ::: {?@fig-fsm-diagram} \nFSM Diagram of column output and key decoding logic. :::\nThe table for this logic is as follows: | Current State | in | Next State | keypadInput | |—————|—-|————|——————-| | WAIT | 0 | WAIT | x | | WAIT | 1 | INPUT | LUT[{rows, cols}] | | INPUT | 0 | DEBOUNCE | x | | INPUT | 1 | HOLD | x | | HOLD | 0 | DEBOUNCE | x | | HOLD | 1 | HOLD | x | | DEBOUNCE | 0 | WAIT | x | | DEBOUNCE | 1 | HOLD | x |\n\n\nBlock Diagram of top level module.\n\nAs for the wiring of the circuit, the same calculations as Lab 2 were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in ?@fig-circuit-diagram\n\n\n\nTesting\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times.\n\n\n\nConclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
   },
   {
-    "objectID": "posts/initial-reflections.html",
-    "href": "posts/initial-reflections.html",
-    "title": "Pre-Course Reflection",
-    "section": "",
-    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+    "objectID": "labs/lab3/lab3.html#testing",
+    "href": "labs/lab3/lab3.html#testing",
+    "title": "Lab 3",
+    "section": "Testing",
+    "text": "Testing\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module iwth a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times."
   },
   {
-    "objectID": "posts/week2-reflection.html",
-    "href": "posts/week2-reflection.html",
-    "title": "Week 2 Reflection",
+    "objectID": "labs/lab3/lab3.html#conclusion",
+    "href": "labs/lab3/lab3.html#conclusion",
+    "title": "Lab 3",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
+  },
+  {
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
     "section": "",
-    "text": "Building on what I did last week, I think I’m getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a .tv file with all the inputs.\nI think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!\nGoing forward though, I think I’ll tap into another aspect of my CS background and implement unit testing. I’m getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own."
+    "text": "Hello World!"
+  },
+  {
+    "objectID": "posts/week1-reflection.html",
+    "href": "posts/week1-reflection.html",
+    "title": "Week 1 Reflection",
+    "section": "",
+    "text": "This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.\nI modeled mine after the ones provided in E85, as well as those explained in Digital Design and Computer Architecture by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.\nMy testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I’m glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Course Website:  Link"
   }
 ]
