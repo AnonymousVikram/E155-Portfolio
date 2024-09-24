@@ -32,7 +32,7 @@ This debouncing method of adding another state to the FSM was quite straightforw
 With this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.
 
 @fig-fsm-diagram shows the FSM logic, while @fig-block-diagram shows the block diagram for my top module.
-::: {@fig-fsm-diagram}
+::: {#fig-fsm-diagram}
 ![](images/fsmdiagram.png)
 
 FSM Diagram of column output and key decoding logic.
@@ -50,7 +50,7 @@ The table for this logic is as follows:
 | DEBOUNCE      | 0  | WAIT       | x                 |
 | DEBOUNCE      | 1  | HOLD       | x                 |
 
-::: {@fig-block-diagram}
+::: {#fig-block-diagram}
 ![](images/blockdiagram.png)
 
 Block Diagram of top level module.
@@ -58,7 +58,7 @@ Block Diagram of top level module.
 
 As for the wiring of the circuit, the same calculations as [Lab 2](https://github.com/AnonymousVikram/e155-lab2) were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in @fig-circuit-diagram
 
-::: {@fig-circuit-diagram}
+::: {#fig-circuit-diagram}
 ![](images/circuitdiagram.png)
 
 
