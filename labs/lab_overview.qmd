@@ -13,3 +13,4 @@ The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to 
 | 2: Multiplexed 7-Segment Display | [Lab 2 Instructions](https://hmc-e155.github.io/lab/lab2/) | [Lab 2 Report](lab2/lab2.qmd) | [Lab 2 Repo](https://github.com/AnonymousVikram/e155-lab2) |
 | 3: Keypad Scanner | [Lab 3 Instructions](https://hmc-e155.github.io/lab/lab3/) | [Lab 3 Report](lab3/lab3.qmd) | [Lab 3 Repo](https://github.com/AnonymousVikram/e155-lab3) |
 | 4: Digital Audio | [Lab 4 Instructions](https://hmc-e155.github.io/lab/lab4/) | [Lab 4 Report](lab4/lab4.qmd) | [Lab 4 Repo](https://github.com/AnonymousVikram/e155-lab4) |
+| 5: Interrupts | [Lab 5 Instructions](https://hmc-e155.github.io/lab/lab5/) | [Lab 5 Report](lab5/lab5.qmd) | [Lab 5 Repo](https://github.com/AnonymousVikram/e155-lab5) |

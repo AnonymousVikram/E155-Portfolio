@@ -22,6 +22,8 @@ website:
           href: labs/lab3/lab3.qmd
         - text: Lab 4
           href: labs/lab4/lab4.qmd
+        - text: Lab 5
+          href: labs/lab5/lab5.qmd
       - href: blog.qmd
         text: Blog
       - text: Resources
