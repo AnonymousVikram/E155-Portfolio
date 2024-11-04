@@ -42,74 +42,46 @@
     "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "labs/lab3/lab3.html",
-    "href": "labs/lab3/lab3.html",
-    "title": "Lab 3",
-    "section": "",
-    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#overview",
-    "href": "labs/lab3/lab3.html#overview",
-    "title": "Lab 3",
-    "section": "",
-    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#design",
-    "href": "labs/lab3/lab3.html#design",
-    "title": "Lab 3",
+    "objectID": "labs/lab4/lab4.html#design",
+    "href": "labs/lab4/lab4.html#design",
+    "title": "Lab 4",
     "section": "Design",
-    "text": "Design\nThis was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldn’t have made sense to leave too many things together.\nThe first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.\nFor the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.\nThe first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.\nThe LUT for this was quite straight-forward, and did not require much thought on my part.\nThe control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: WAIT, INPUT, HOLD, DEBOUNCE. Any time the row input was not detected as 1111, the FSM proceeds to the INPUT state, and exerts the keyInputValid signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the INPUT state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the HOLD state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.\nThis debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementation, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.\nWith this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.\nFigure 1 shows the FSM logic, while Figure 2 shows the block diagram for my top module.\n\n\n\n\n\n\nFigure 1: FSM Diagram of column output and key decoding logic.\n\n\n\nThe table for this logic is as follows:\n\n\n\nCurrent State\nin\nNext State\nkeypadInput\n\n\n\n\nWAIT\n0\nWAIT\nx\n\n\nWAIT\n1\nINPUT\nLUT[{rows, cols}]\n\n\nINPUT\n0\nDEBOUNCE\nx\n\n\nINPUT\n1\nHOLD\nx\n\n\nHOLD\n0\nDEBOUNCE\nx\n\n\nHOLD\n1\nHOLD\nx\n\n\nDEBOUNCE\n0\nWAIT\nx\n\n\nDEBOUNCE\n1\nHOLD\nx\n\n\n\n\n\n\n\n\n\nFigure 2: Block Diagram of top level module.\n\n\n\nAs for the wiring of the circuit, the same calculations as Lab 2 were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in Figure 3\n\n\n\n\n\n\nFigure 3: Circuit diagram showing the connections in and out of the FPGA."
+    "text": "Design"
   },
   {
-    "objectID": "labs/lab3/lab3.html#testing",
-    "href": "labs/lab3/lab3.html#testing",
-    "title": "Lab 3",
+    "objectID": "labs/lab4/lab4.html#testing",
+    "href": "labs/lab4/lab4.html#testing",
+    "title": "Lab 4",
     "section": "Testing",
-    "text": "Testing\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module with a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times."
+    "text": "Testing\nWe were provided with a piece (Für Elise), to test our system with. A video of my program playing this piece can be seen below:\n\nAs an extension, I also updated the program to play a custom piece. See if you can guess what it is!"
   },
   {
-    "objectID": "labs/lab3/lab3.html#conclusion",
-    "href": "labs/lab3/lab3.html#conclusion",
-    "title": "Lab 3",
+    "objectID": "labs/lab4/lab4.html#conclusion",
+    "href": "labs/lab4/lab4.html#conclusion",
+    "title": "Lab 4",
     "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
+    "text": "Conclusion"
   },
   {
-    "objectID": "labs/lab2/lab2.html",
-    "href": "labs/lab2/lab2.html",
-    "title": "Lab 2",
+    "objectID": "labs/lab_overview.html",
+    "href": "labs/lab_overview.html",
+    "title": "Labs Overview",
     "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
   },
   {
-    "objectID": "labs/lab2/lab2.html#overview",
-    "href": "labs/lab2/lab2.html#overview",
-    "title": "Lab 2",
+    "objectID": "labs/lab_overview.html#background",
+    "href": "labs/lab_overview.html#background",
+    "title": "Labs Overview",
     "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
   },
   {
-    "objectID": "labs/lab2/lab2.html#design",
-    "href": "labs/lab2/lab2.html#design",
-    "title": "Lab 2",
-    "section": "Design",
-    "text": "Design\nFor the SystemVerilog top module (lab2_vk), I only ended up using one submodule, the seven-segment display module created in Lab 1. I then used a similar counter from my ledDecoder to implement the time multiplexing. I also simply added together the values of the two switches to get the sum. The block diagram for this design can be seen in Figure 1:\n\n\n\n\n\n\nFigure 1: Block Diagram of my SystemVerilog Design\n\n\n\nAs for the circuit, it was largely based off of the values calculated from Lab 1. But, with the added transistors, there was the need for a current-limiting resistor. From the datasheet for the iCE40UP, we can determine that the maximum current draw should be 8 \\(mA\\). Plugging this into Ohm’s Law (\\(V = IR\\)), with \\(V = 3.3V\\) and I = \\(0.008A\\), we get that \\[\nR \\geq \\frac{3.3}{0.008} = 412.5\\Omega\n\\]\nWith the resistor values available in the lab, I went with \\(470 \\Omega\\) resistors. This schematic can be seen in Figure 2\n\n\n\n\n\n\nFigure 2: Circuit Diagram of my physical implementation"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#testing",
-    "href": "labs/lab2/lab2.html#testing",
-    "title": "Lab 2",
-    "section": "Testing",
-    "text": "Testing\nThe testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in \\(2^8 \\cdot 2 = 512\\) testcases. Thus this week, I wrote a Python script to generate the test vectors. The test results are below:\n\nWaveform\n\n\n\nResult"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#conclusion",
-    "href": "labs/lab2/lab2.html#conclusion",
-    "title": "Lab 2",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab."
+    "objectID": "labs/lab_overview.html#labs",
+    "href": "labs/lab_overview.html#labs",
+    "title": "Labs Overview",
+    "section": "Labs",
+    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo\n\n\n5: Interrupts\nLab 5 Instructions\nLab 5 Report\nLab 5 Repo"
   },
   {
     "objectID": "labs/lab1/lab1.html",
@@ -147,44 +119,93 @@
     "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
   },
   {
-    "objectID": "labs/lab_overview.html",
-    "href": "labs/lab_overview.html",
-    "title": "Labs Overview",
+    "objectID": "labs/lab2/lab2.html",
+    "href": "labs/lab2/lab2.html",
+    "title": "Lab 2",
     "section": "",
-    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
   },
   {
-    "objectID": "labs/lab_overview.html#background",
-    "href": "labs/lab_overview.html#background",
-    "title": "Labs Overview",
+    "objectID": "labs/lab2/lab2.html#overview",
+    "href": "labs/lab2/lab2.html#overview",
+    "title": "Lab 2",
     "section": "",
-    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
   },
   {
-    "objectID": "labs/lab_overview.html#labs",
-    "href": "labs/lab_overview.html#labs",
-    "title": "Labs Overview",
-    "section": "Labs",
-    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo"
+    "objectID": "labs/lab2/lab2.html#design",
+    "href": "labs/lab2/lab2.html#design",
+    "title": "Lab 2",
+    "section": "Design",
+    "text": "Design\nFor the SystemVerilog top module (lab2_vk), I only ended up using one submodule, the seven-segment display module created in Lab 1. I then used a similar counter from my ledDecoder to implement the time multiplexing. I also simply added together the values of the two switches to get the sum. The block diagram for this design can be seen in Figure 1:\n\n\n\n\n\n\nFigure 1: Block Diagram of my SystemVerilog Design\n\n\n\nAs for the circuit, it was largely based off of the values calculated from Lab 1. But, with the added transistors, there was the need for a current-limiting resistor. From the datasheet for the iCE40UP, we can determine that the maximum current draw should be 8 \\(mA\\). Plugging this into Ohm’s Law (\\(V = IR\\)), with \\(V = 3.3V\\) and I = \\(0.008A\\), we get that \\[\nR \\geq \\frac{3.3}{0.008} = 412.5\\Omega\n\\]\nWith the resistor values available in the lab, I went with \\(470 \\Omega\\) resistors. This schematic can be seen in Figure 2\n\n\n\n\n\n\nFigure 2: Circuit Diagram of my physical implementation"
   },
   {
-    "objectID": "labs/lab4/lab4.html#design",
-    "href": "labs/lab4/lab4.html#design",
-    "title": "Lab 4",
+    "objectID": "labs/lab2/lab2.html#testing",
+    "href": "labs/lab2/lab2.html#testing",
+    "title": "Lab 2",
+    "section": "Testing",
+    "text": "Testing\nThe testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in \\(2^8 \\cdot 2 = 512\\) testcases. Thus this week, I wrote a Python script to generate the test vectors. The test results are below:\n\nWaveform\n\n\n\nResult"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#conclusion",
+    "href": "labs/lab2/lab2.html#conclusion",
+    "title": "Lab 2",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html",
+    "href": "labs/lab3/lab3.html",
+    "title": "Lab 3",
+    "section": "",
+    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#overview",
+    "href": "labs/lab3/lab3.html#overview",
+    "title": "Lab 3",
+    "section": "",
+    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#design",
+    "href": "labs/lab3/lab3.html#design",
+    "title": "Lab 3",
+    "section": "Design",
+    "text": "Design\nThis was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldn’t have made sense to leave too many things together.\nThe first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.\nFor the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.\nThe first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.\nThe LUT for this was quite straight-forward, and did not require much thought on my part.\nThe control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: WAIT, INPUT, HOLD, DEBOUNCE. Any time the row input was not detected as 1111, the FSM proceeds to the INPUT state, and exerts the keyInputValid signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the INPUT state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the HOLD state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.\nThis debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementation, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.\nWith this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.\nFigure 1 shows the FSM logic, while Figure 2 shows the block diagram for my top module.\n\n\n\n\n\n\nFigure 1: FSM Diagram of column output and key decoding logic.\n\n\n\nThe table for this logic is as follows:\n\n\n\nCurrent State\nin\nNext State\nkeypadInput\n\n\n\n\nWAIT\n0\nWAIT\nx\n\n\nWAIT\n1\nINPUT\nLUT[{rows, cols}]\n\n\nINPUT\n0\nDEBOUNCE\nx\n\n\nINPUT\n1\nHOLD\nx\n\n\nHOLD\n0\nDEBOUNCE\nx\n\n\nHOLD\n1\nHOLD\nx\n\n\nDEBOUNCE\n0\nWAIT\nx\n\n\nDEBOUNCE\n1\nHOLD\nx\n\n\n\n\n\n\n\n\n\nFigure 2: Block Diagram of top level module.\n\n\n\nAs for the wiring of the circuit, the same calculations as Lab 2 were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in Figure 3\n\n\n\n\n\n\nFigure 3: Circuit diagram showing the connections in and out of the FPGA."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#testing",
+    "href": "labs/lab3/lab3.html#testing",
+    "title": "Lab 3",
+    "section": "Testing",
+    "text": "Testing\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module with a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#conclusion",
+    "href": "labs/lab3/lab3.html#conclusion",
+    "title": "Lab 3",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#design",
+    "href": "labs/lab5/lab5.html#design",
+    "title": "Lab 5",
     "section": "Design",
     "text": "Design"
   },
   {
-    "objectID": "labs/lab4/lab4.html#testing",
-    "href": "labs/lab4/lab4.html#testing",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab5.html#testing",
+    "href": "labs/lab5/lab5.html#testing",
+    "title": "Lab 5",
     "section": "Testing",
-    "text": "Testing\nWe were provided with a piece (Für Elise), to test our system with. A video of my program playing this piece can be seen below:\n\nAs an extension, I also updated the program to play a custom piece. See if you can guess what it is!"
+    "text": "Testing\nBelow is a video of me demonstrating correct functionality in reading from the quadrature encoder:"
   },
   {
-    "objectID": "labs/lab4/lab4.html#conclusion",
-    "href": "labs/lab4/lab4.html#conclusion",
-    "title": "Lab 4",
+    "objectID": "labs/lab5/lab5.html#conclusion",
+    "href": "labs/lab5/lab5.html#conclusion",
+    "title": "Lab 5",
     "section": "Conclusion",
     "text": "Conclusion"
   },
