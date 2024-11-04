@@ -1,24 +1,45 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
     "section": "",
-    "text": "Course Website:  Link"
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
   },
   {
-    "objectID": "posts/week1-reflection.html",
-    "href": "posts/week1-reflection.html",
-    "title": "Week 1 Reflection",
-    "section": "",
-    "text": "This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.\nI modeled mine after the ones provided in E85, as well as those explained in Digital Design and Computer Architecture by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.\nMy testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I’m glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course."
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Home",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
   },
   {
-    "objectID": "posts/first-post.html",
-    "href": "posts/first-post.html",
-    "title": "Hello Quarto",
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Home",
+    "section": "Experience",
+    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
+  },
+  {
+    "objectID": "posts/week2-reflection.html",
+    "href": "posts/week2-reflection.html",
+    "title": "Week 2 Reflection",
     "section": "",
-    "text": "Hello World!"
+    "text": "Building on what I did last week, I think I’m getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a .tv file with all the inputs.\nI think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!\nGoing forward though, I think I’ll tap into another aspect of my CS background and implement unit testing. I’m getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own."
+  },
+  {
+    "objectID": "posts/initial-reflections.html",
+    "href": "posts/initial-reflections.html",
+    "title": "Pre-Course Reflection",
+    "section": "",
+    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
+    "section": "",
+    "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "labs/lab3/lab3.html",
@@ -56,69 +77,6 @@
     "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
   },
   {
-    "objectID": "labs/lab1/lab1.html",
-    "href": "labs/lab1/lab1.html",
-    "title": "Lab 1",
-    "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#overview",
-    "href": "labs/lab1/lab1.html#overview",
-    "title": "Lab 1",
-    "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#design",
-    "href": "labs/lab1/lab1.html#design",
-    "title": "Lab 1",
-    "section": "Design",
-    "text": "Design\nFor the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an always_comb block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that led[0] and led[1] could be simplified to combinational logic using a XOR and AND gate respectively, so I designed that using an assign statement. However, for led[3], since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an always_ff block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off. This explanation can be visualized using the diagram below:\n\nAs for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff’s Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:\n\nThen, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff’s Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.\n\\[\nV = IR\n\\]\n\\[\nR_1 = \\frac{3.3-2.1}{0.02}=60\\Omega\n\\]\nThus, with this calculation, we know that each of the resistors in the circuit should be \\(60 \\Omega\\) ."
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#testing",
-    "href": "labs/lab1/lab1.html#testing",
-    "title": "Lab 1",
-    "section": "Testing",
-    "text": "Testing\nThe testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a testbench with all possible inputs simulated, and verified against the output. The test results are below:\n\nWaveform\n\n\n\nResult"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#conclusion",
-    "href": "labs/lab1/lab1.html#conclusion",
-    "title": "Lab 1",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
-    "section": "",
-    "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Home",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Home",
-    "section": "Experience",
-    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
-  },
-  {
     "objectID": "labs/lab2/lab2.html",
     "href": "labs/lab2/lab2.html",
     "title": "Lab 2",
@@ -154,6 +112,41 @@
     "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab."
   },
   {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#overview",
+    "href": "labs/lab1/lab1.html#overview",
+    "title": "Lab 1",
+    "section": "",
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#design",
+    "href": "labs/lab1/lab1.html#design",
+    "title": "Lab 1",
+    "section": "Design",
+    "text": "Design\nFor the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an always_comb block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that led[0] and led[1] could be simplified to combinational logic using a XOR and AND gate respectively, so I designed that using an assign statement. However, for led[3], since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an always_ff block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off. This explanation can be visualized using the diagram below:\n\nAs for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff’s Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:\n\nThen, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff’s Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.\n\\[\nV = IR\n\\]\n\\[\nR_1 = \\frac{3.3-2.1}{0.02}=60\\Omega\n\\]\nThus, with this calculation, we know that each of the resistors in the circuit should be \\(60 \\Omega\\) ."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#testing",
+    "href": "labs/lab1/lab1.html#testing",
+    "title": "Lab 1",
+    "section": "Testing",
+    "text": "Testing\nThe testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a testbench with all possible inputs simulated, and verified against the output. The test results are below:\n\nWaveform\n\n\n\nResult"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#conclusion",
+    "href": "labs/lab1/lab1.html#conclusion",
+    "title": "Lab 1",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
+  },
+  {
     "objectID": "labs/lab_overview.html",
     "href": "labs/lab_overview.html",
     "title": "Labs Overview",
@@ -172,20 +165,48 @@
     "href": "labs/lab_overview.html#labs",
     "title": "Labs Overview",
     "section": "Labs",
-    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo"
+    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo"
   },
   {
-    "objectID": "posts/initial-reflections.html",
-    "href": "posts/initial-reflections.html",
-    "title": "Pre-Course Reflection",
-    "section": "",
-    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+    "objectID": "labs/lab4/lab4.html#design",
+    "href": "labs/lab4/lab4.html#design",
+    "title": "Lab 4",
+    "section": "Design",
+    "text": "Design"
   },
   {
-    "objectID": "posts/week2-reflection.html",
-    "href": "posts/week2-reflection.html",
-    "title": "Week 2 Reflection",
+    "objectID": "labs/lab4/lab4.html#testing",
+    "href": "labs/lab4/lab4.html#testing",
+    "title": "Lab 4",
+    "section": "Testing",
+    "text": "Testing\nWe were provided with a piece (Für Elise), to test our system with. A video of my program playing this piece can be seen below:\n\nAs an extension, I also updated the program to play a custom piece. See if you can guess what it is!"
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#conclusion",
+    "href": "labs/lab4/lab4.html#conclusion",
+    "title": "Lab 4",
+    "section": "Conclusion",
+    "text": "Conclusion"
+  },
+  {
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
     "section": "",
-    "text": "Building on what I did last week, I think I’m getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a .tv file with all the inputs.\nI think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!\nGoing forward though, I think I’ll tap into another aspect of my CS background and implement unit testing. I’m getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own."
+    "text": "Hello World!"
+  },
+  {
+    "objectID": "posts/week1-reflection.html",
+    "href": "posts/week1-reflection.html",
+    "title": "Week 1 Reflection",
+    "section": "",
+    "text": "This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.\nI modeled mine after the ones provided in E85, as well as those explained in Digital Design and Computer Architecture by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.\nMy testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I’m glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Course Website:  Link"
   }
 ]

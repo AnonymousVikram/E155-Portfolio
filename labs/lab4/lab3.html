@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 3 – E155 Portfolio</title>
+<title>Lab 4 – E155 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,10 +113,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../labs/lab3/lab3.html">
  <span class="dropdown-text">Lab 3</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../labs/lab4/lab4.html">
- <span class="dropdown-text">Lab 4</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -146,20 +142,17 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
-  <ul class="collapse">
-  <li><a href="#waveform" id="toc-waveform" class="nav-link" data-scroll-target="#waveform">Waveform</a></li>
-  </ul></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/AnonymousVikram/e155-lab3"><i class="bi bi-github"></i>Github Repo</a></li></ul></div></nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/AnonymousVikram/e155-lab4"><i class="bi bi-github"></i>Github Repo</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 3</h1>
+<h1 class="title">Lab 4</h1>
 </div>
 
 
@@ -178,124 +171,18 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing.</p>
 </section>
 <section id="design" class="level2">
 <h2 class="anchored" data-anchor-id="design">Design</h2>
-<p>This was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldn’t have made sense to leave too many things together.</p>
-<p>The first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.</p>
-<p>For the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.</p>
-<p>The first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.</p>
-<p>The LUT for this was quite straight-forward, and did not require much thought on my part.</p>
-<p>The control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: <code>WAIT</code>, <code>INPUT</code>, <code>HOLD</code>, <code>DEBOUNCE</code>. Any time the <code>row</code> input was not detected as <code>1111</code>, the FSM proceeds to the <code>INPUT</code> state, and exerts the <code>keyInputValid</code> signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the <code>INPUT</code> state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the <code>HOLD</code> state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.</p>
-<p>This debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof.&nbsp;Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementation, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.</p>
-<p>With this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.</p>
-<p><a href="#fig-fsm-diagram" class="quarto-xref">Figure&nbsp;1</a> shows the FSM logic, while <a href="#fig-block-diagram" class="quarto-xref">Figure&nbsp;2</a> shows the block diagram for my top module.</p>
-<div id="fig-fsm-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fsm-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/fsmdiagram.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fsm-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: FSM Diagram of column output and key decoding logic.
-</figcaption>
-</figure>
-</div>
-<p>The table for this logic is as follows:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Current State</th>
-<th>in</th>
-<th>Next State</th>
-<th>keypadInput</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>WAIT</td>
-<td>0</td>
-<td>WAIT</td>
-<td>x</td>
-</tr>
-<tr class="even">
-<td>WAIT</td>
-<td>1</td>
-<td>INPUT</td>
-<td>LUT[{rows, cols}]</td>
-</tr>
-<tr class="odd">
-<td>INPUT</td>
-<td>0</td>
-<td>DEBOUNCE</td>
-<td>x</td>
-</tr>
-<tr class="even">
-<td>INPUT</td>
-<td>1</td>
-<td>HOLD</td>
-<td>x</td>
-</tr>
-<tr class="odd">
-<td>HOLD</td>
-<td>0</td>
-<td>DEBOUNCE</td>
-<td>x</td>
-</tr>
-<tr class="even">
-<td>HOLD</td>
-<td>1</td>
-<td>HOLD</td>
-<td>x</td>
-</tr>
-<tr class="odd">
-<td>DEBOUNCE</td>
-<td>0</td>
-<td>WAIT</td>
-<td>x</td>
-</tr>
-<tr class="even">
-<td>DEBOUNCE</td>
-<td>1</td>
-<td>HOLD</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
-<div id="fig-block-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-block-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/blockdiagram.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Block Diagram of top level module.
-</figcaption>
-</figure>
-</div>
-<p>As for the wiring of the circuit, the same calculations as <a href="https://github.com/AnonymousVikram/e155-lab2">Lab 2</a> were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in <a href="#fig-circuit-diagram" class="quarto-xref">Figure&nbsp;3</a></p>
-<div id="fig-circuit-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-circuit-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/circuitdiagram.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circuit-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Circuit diagram showing the connections in and out of the FPGA.
-</figcaption>
-</figure>
-</div>
 </section>
 <section id="testing" class="level2">
 <h2 class="anchored" data-anchor-id="testing">Testing</h2>
-<p>For this lab, inspired by Prof.&nbsp;Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module with a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:</p>
-<section id="waveform" class="level3">
-<h3 class="anchored" data-anchor-id="waveform">Waveform</h3>
-<p><img src="images/waveform.png" class="img-fluid" width="2528"></p>
-<p>Since the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times.</p>
-</section>
+<p>We were provided with a piece (Für Elise), to test our system with. A video of my program playing this piece can be seen below:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/zZwcQdTyNyY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>As an extension, I also updated the program to play a custom piece. See if you can guess what it is!</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>My design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab.</p>
 
 
 </section>
@@ -393,7 +280,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/AnonymousVikram\.github\.io\/E155-Portfolio\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
