@@ -1,0 +1,19 @@
+---
+title: "Lab 5"
+format:
+  html:
+    code-links:
+      - text: Github Repo
+        icon: github
+        href: https://github.com/AnonymousVikram/e155-lab5
+---
+
+## Overview
+## Design
+## Testing
+
+Below is a video of me demonstrating correct functionality in reading from the quadrature encoder:
+
+{{< video https://youtu.be/MsNZCLQNzGs >}}
+
+## Conclusion
