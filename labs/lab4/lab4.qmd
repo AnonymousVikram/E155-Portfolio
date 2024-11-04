@@ -1,0 +1,23 @@
+---
+title: "Lab 4"
+format:
+  html:
+    code-links:
+      - text: Github Repo
+        icon: github
+        href: https://github.com/AnonymousVikram/e155-lab4
+---
+
+## Overview
+## Design
+## Testing
+
+We were provided with a piece (Für Elise), to test our system with. A video of my program playing this piece can be seen below: 
+
+{{< video https://www.youtube.com/embed/zZwcQdTyNyY >}}
+
+As an extension, I also updated the program to play a custom piece. See if you can guess what it is!
+
+{{< video https://www.youtube.com/embed/Fib-z7mNCg8 >}}
+
+## Conclusion
