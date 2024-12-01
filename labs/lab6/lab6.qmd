@@ -1,0 +1,56 @@
+---
+title: "Lab 6"
+format:
+  html:
+    code-links:
+      - text: Github Repo
+        icon: github
+        href: https://github.com/AnonymousVikram/e155-lab6
+---
+
+## Overview
+
+The primary purpose of this lab was to practice using the SPI protocol to communicate with a temperature sensor.
+With these readings, we would then use provided code to host a web server to both configure the precision of the sensor
+as well as display the latest readings. Lastly, there was also control of an LED using the web server.
+
+## Design
+
+### SPI Communication
+
+The bulk of the work for this lab was creating and debugging the SPI communication between the STM microcontroller and the temperature sensor.
+We were provided with a DS1722 sensor, as well as an ESP8266 module to host the web server.
+
+I had to write a SPI library to interface with the sensor. I created a function, `initSpi`, which takes in baud rate, polarity, and phase.
+I used PB3, 4, 5, and 7 as my SPI pins, chosen because they were easily accessible on the adaptor board.
+After this, I set up the clock signals, as well as the alternate function registers for the pins.
+
+Then, I wrote a `spiSendReceive` function, which takes in a byte to send, and returns the byte received.
+
+### Temperature Sensor
+
+I built out a few additional functions to provide an interface with the temperature sensor without requiring the user to know the specifics of the SPI communication.
+
+The first was an `initTempSensor` function, which calls the `initSpi` function, and then initializes the sensor, and sends a few SPI packets to set the sensor to 8-bit resolution.
+
+Another was `setPrecision`, which takes in a byte, and sets the precision of the sensor to that value.
+
+The last was `readTemp`, which reads the temperature from the sensor, and returns it as a float.
+
+One key thing that I realized the hard way (through testings), is that despite mentioning the 'sign bit' in the datasheet, the temperature sensor actually stores the reading as a two's complement number. Although this made the code quite straightforward (I could just read it in as a float and store the relevant bits), it was a bit frustrating to realize that the datasheet was misleading.
+
+## Analysis
+
+With all of the SPI communication working, I was able to read the temperature sensor and display the readings on the web server. There were a lot of minor issues that were hard to track down with the SPI interface, but it was really cool to have an end-to-end system working.
+An example SPI transaction read using a logic analyzer is shown in @fig-spi.
+
+::: {#fig-spi}
+![SPI Transaction](images/spi.png)
+:::
+
+One thing that I would've liked to do is to have a more robust error handling system. Currently, if the SPI communication fails, the system just hangs. It would've been nice to have a watchdog timer or some other mechanism to reset the system if the SPI communication failed.
+
+## Conclusion
+
+Overall, I suceeded in interfacing with the temperature sensor and displaying the readings on the web server. I also managed to control the LED using the web server, which was a nice touch. I learned a lot about SPI communication, and how to debug it, which will be useful in future projects.
+I spent 12 hours on this lab.
