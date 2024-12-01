@@ -9,11 +9,63 @@ format:
 ---
 
 ## Overview
+
+This lab involved switching over from FPGA-focused work to the MCU. We had to incorporate knowledge about C programming, as well as new information about timers. All of this was combined with the goal of hooking up a speaker and playing notes and songs on it.
+
 ## Design
+
+The first step in setting up this codebase was to enable timers and interrupts. 
+After setting up the PLL clock to run at 80MHz, I had to enable and configure TIM16 and TIM6. 
+
+### TIM16
+
+I used TIM16 as it is easily connectable to external GPIO and supports PWM signals.
+
+In configuring TIM16, I set the prescaler to 19, which would divide the 80MHz clock by $19 + 1 = 20$, resulting in a 4MHz input clock.
+
+This was selected to meet the specifications. 
+Given this clock, the minimum frequency that can be generated is $4$MHz $/ 65535 = 61$Hz, which is well below the 220Hz minimum frequency required. 
+The maximum frequency that can be generated is $4$MHz $/ 2 = 2$MHz, which is well above the 1kHz maximum frequency required.
+Further, we can see that for any frequency within this range, the output will be within 1% of the desired frequency.
+For any value of ARR, the actual output frequency will be $f_{out} = f_{in} / (\text{ARR} + 1)$. In my implementation, $\text{ARR}$ is calculated as $4000000 / f_{desired} - 1$.
+Since $\text{ARR}$ is an integer between 0 and 65535, we can test a variety of frequencies to see if they are within the desired range of 1% of the desired frequency.
+I created a small [Python script](temp.py) to test this. The script tests all possible desired frequencies between 220Hz and 1kHz, and checks what the error is. The worst case error was found to be 0.024%, at 973Hz.
+This is well below the 1% error requirement, resulting in a successful implementation.
+
+I also wrote a helper function, `setPWM`, which would take in a frequency and a duty cycle.
+With this, it would set the ARR register to $4000000 / \text{frequency} - 1$, and the CCR1 register to $dutyCycle * \text{ARR}$.
+Then, it would set the EGR register to update the timer.
+
+Lastly, I set up GPIO Pin PA6 to be connected to the TIM16 output, so that the PWM signal could be output to the speaker.
+
+### TIM6
+
+TIM6 was chosen to be used as a delay timer, due to its simplicity and ease of use.
+
+As for TIM6, I set the prescaler to 39999, which would scale the 80MHz clock down to 2kHz.
+With this, we can calculate the minimum and maximum delay times that can be generated.
+The minimum delay time is $1 / 2$kHz $= 0.5$ms, while the maximum delay time is $65535 / 2$kHz $= 32.7675$s.
+This fits nicely within the range of durations provided in both the lab manual and the provided piece.
+
+A helper function was created to serve as a delay function, which would take in a duration in milliseconds and delay for that amount of time.
+This is done by setting the ARR register to $\text{duration} * 2$, and then setting the EGR register to update the timer.
+
+### Circuit
+
+The circuit was quite simple, given the complexity of this lab came from internal MCU programming. Given the speaker draws a lot of current,
+an LM386 amplifier was used to drive the speaker. The MCU drove the PWM signal going into the amplifier, which was then set up with the 
+reference circuitry to drive the speaker. This circuitry was found in the [LM386 datasheet](https://www.ti.com/lit/ds/symlink/lm386.pdf).
+
+A circuit diagram can be seen in @fig-circuit-diagram.
+
+::: {#fig-circuit-diagram}
+![](images/circuitdiagram.png)
+:::
+
 ## Testing
 
 We were provided with a piece (Für Elise), to test our system with. A video of my program playing this piece can be seen below: 
-
+2
 {{< video https://www.youtube.com/embed/zZwcQdTyNyY >}}
 
 As an extension, I also updated the program to play a custom piece. See if you can guess what it is!
@@ -21,3 +73,5 @@ As an extension, I also updated the program to play a custom piece. See if you c
 {{< video https://www.youtube.com/embed/Fib-z7mNCg8 >}}
 
 ## Conclusion
+
+My design met all the requirements of the lab, and I was able to play both the provided piece and a custom piece. I learned a lot about timers and interrupts in the process, and spent around 25 hours on this lab.
