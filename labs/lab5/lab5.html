@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -121,6 +150,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../labs/lab5/lab5.html">
  <span class="dropdown-text">Lab 5</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../labs/lab6/lab6.html">
+ <span class="dropdown-text">Lab 6</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -149,8 +182,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#interrupts" id="toc-interrupts" class="nav-link" data-scroll-target="#interrupts">Interrupts</a></li>
+  </ul></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://github.com/AnonymousVikram/e155-lab5"><i class="bi bi-github"></i>Github Repo</a></li></ul></div></nav>
@@ -179,17 +216,41 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The primary purpose of this lab is to understand the fundamentals of interrupts. This was then applied to reading from a quadrature encoder. As the quadrature encoder has two channels, we design a multi-interrupt routine to gain accurate readings, and apply this to printing the speed of a DC motor.</p>
 </section>
 <section id="design" class="level2">
 <h2 class="anchored" data-anchor-id="design">Design</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>A quadrature encoder works by positioning two sensors 90 degrees apart from each other. This allows us to determine the direction of rotation of the motor, along with more granular readings of the motor’s position. From the <a href="https://hmc-e155.github.io/assets/lab/25GA370.pdf">datasheet</a> of the motor, we know that the encoder has 12 counts per revolution. Translating this to the motor, we realize that there are 120 counts per revolution, as the motor has a 10:1 gear ratio.</p>
+<p>Fundamentally, my design involved setting up interrupts and handlers to read from the encoder and update a global variable that stores the number of ‘ticks’. I implemented a basic lookup table to determine the direction of rotation based on the previous and current states of the encoder, allowing me to increment or decrement the tick count accordingly. From this, I set up the SysTick interrupt to print the current angular velocity of the motor every 1s. Ticks are converted to rpm by <span class="math inline">\(\text{rpm} = \frac{\text{ticks}}{120} \times 60\)</span> since there are 120 ticks per revolution and 60s in a minute.</p>
 </section>
-<section id="testing" class="level2">
-<h2 class="anchored" data-anchor-id="testing">Testing</h2>
-<p>Below is a video of me demonstrating correct functionality in reading from the quadrature encoder:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/MsNZCLQNzGs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="interrupts" class="level3">
+<h3 class="anchored" data-anchor-id="interrupts">Interrupts</h3>
+<p>There were three interrupts that I set up for this lab: PA5 and PA6 as inputs from the encoder, and SysTick as a timer interrupt. I chose PA5 and PA6 as not only are they 5V tolerant, but they are also configured on the same EXTI line, allowing me to use a single interrupt handler for both pins. The EXTI handler was used to read the current state of the encoder and update the tick count accordingly. Each time that it was triggered, the handler reads in the current values, and compares it with the previous state to reference a lookup table to determine the direction of rotation. Then, the tick count is either added or subtracted as needed. Then, the current state is stored as the previous state for the next interrupt, and the handler returns.</p>
+<p>The SysTick interrupt was set up to trigger every 1ms, and every time the time counter reaches 1000, the rpm is calculated and printed to the console. After printing, the tick count is reset to 0, and the time counter is reset to 0.</p>
+<p>A key point to note is that the SysTick interrupt is set to a higher priority than the EXTI interrupt, as we want to ensure that the rpm is printed accurately every second.</p>
+<p>A flowchart of the interrupt routine is shown in <span class="citation" data-cites="fig:interrupts">@fig:interrupts</span>.</p>
+<div id="fig:interrupts">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/interrupts.png" class="img-fluid figure-img"></p>
+<figcaption>Interrupt Routine Flowchart</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>An alternative to the multi-interrupt routine exercised in this lab would be to use a timer-based polling approach. In fact, from my previous background, this would’ve been the first approach I would’ve taken. However, the multi-interrupt routine is more efficient, as it allows the MCU to perform other tasks while waiting for the encoder to trigger an interrupt. Further, the multi-interrupt routine is more accurate, as it can capture the exact moment the encoder changes state, rather than polling at a fixed rate.</p>
+<p>According to <a href="https://users.ece.utexas.edu/~valvano/Volume1/E-Book/C12_Interrupts.htm">Valvano and Yerraballi</a>, the periodic polling approach has an average latency of <span class="math inline">\(T/2\)</span>, where <span class="math inline">\(T\)</span> is the period of the polling. On the other hand, the interrupt approach has an average latency of <span class="math inline">\(T_{\text{interrupt}}\)</span>, where <span class="math inline">\(T_{\text{interrupt}}\)</span> is the time taken to service the interrupt, often significantly less than <span class="math inline">\(T\)</span>. This makes the interrupt approach more responsive and accurate than the polling approach.</p>
+<p>In addition, the polling approach would require more power, as the MCU would have to constantly check the encoder’s state. This is in contrast to the interrupt approach, where the MCU can sleep until an interrupt is triggered, saving power. Typically, the polling approach should only be used if the IO cannot generate an interrupt, and the IO functions should be done in the background.</p>
+<p>However, in the use case for this lab, the interrupt approach is more efficient and accurate, making it the better choice.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Overall, I successfully implemented a multi-interrupt routine to read from a quadrature encoder and print the speed of a DC motor. I also learned the importance of interrupts and how they can be used to make the MCU more efficient and accurate. I spent around 9 hours on this lab.</p>
 
 
 </section>
