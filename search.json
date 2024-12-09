@@ -277,7 +277,7 @@
     "href": "labs/lab_overview.html#labs",
     "title": "Labs Overview",
     "section": "Labs",
-    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo\n\n\n5: Interrupts\nLab 5 Instructions\nLab 5 Report\nLab 5 Repo\n\n\n6: The Internet of Things and Serial Peripheral Interface\n\n\n\n\n\nLab 6 Instructions\nLab 6 Report\nLab 6 Repo"
+    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo\n\n\n5: Interrupts\nLab 5 Instructions\nLab 5 Report\nLab 5 Repo\n\n\n6: The Internet of Things and SPI\nLab 6 Instructions\nLab 6 Report\nLab 6 Repo"
   },
   {
     "objectID": "posts/initial-reflections.html",
