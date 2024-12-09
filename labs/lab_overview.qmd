@@ -14,5 +14,4 @@ The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to 
 | 3: Keypad Scanner | [Lab 3 Instructions](https://hmc-e155.github.io/lab/lab3/) | [Lab 3 Report](lab3/lab3.qmd) | [Lab 3 Repo](https://github.com/AnonymousVikram/e155-lab3) |
 | 4: Digital Audio | [Lab 4 Instructions](https://hmc-e155.github.io/lab/lab4/) | [Lab 4 Report](lab4/lab4.qmd) | [Lab 4 Repo](https://github.com/AnonymousVikram/e155-lab4) |
 | 5: Interrupts | [Lab 5 Instructions](https://hmc-e155.github.io/lab/lab5/) | [Lab 5 Report](lab5/lab5.qmd) | [Lab 5 Repo](https://github.com/AnonymousVikram/e155-lab5) |
-| 6: The Internet of Things and Serial Peripheral Interface
- | [Lab 6 Instructions](https://hmc-e155.github.io/lab/lab6/) | [Lab 6 Report](lab6/lab6.qmd) | [Lab 6 Repo](https://github.com/AnonymousVikram/e155-lab6) |
+| 6: The Internet of Things and SPI | [Lab 6 Instructions](https://hmc-e155.github.io/lab/lab6/) | [Lab 6 Report](lab6/lab6.qmd) | [Lab 6 Repo](https://github.com/AnonymousVikram/e155-lab6) |
