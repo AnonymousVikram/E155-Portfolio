@@ -1,206 +1,59 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
+    "text": "Course Website:  Link"
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Home",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Home",
-    "section": "Experience",
-    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
-  },
-  {
-    "objectID": "posts/week2-reflection.html",
-    "href": "posts/week2-reflection.html",
-    "title": "Week 2 Reflection",
+    "objectID": "posts/week1-reflection.html",
+    "href": "posts/week1-reflection.html",
+    "title": "Week 1 Reflection",
     "section": "",
-    "text": "Building on what I did last week, I think I’m getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a .tv file with all the inputs.\nI think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!\nGoing forward though, I think I’ll tap into another aspect of my CS background and implement unit testing. I’m getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own."
+    "text": "This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.\nI modeled mine after the ones provided in E85, as well as those explained in Digital Design and Computer Architecture by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.\nMy testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I’m glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course."
   },
   {
-    "objectID": "posts/initial-reflections.html",
-    "href": "posts/initial-reflections.html",
-    "title": "Pre-Course Reflection",
+    "objectID": "posts/first-post.html",
+    "href": "posts/first-post.html",
+    "title": "Hello Quarto",
     "section": "",
-    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+    "text": "Hello World!"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
+    "objectID": "labs/lab6/lab6.html",
+    "href": "labs/lab6/lab6.html",
+    "title": "Lab 6",
     "section": "",
-    "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
+    "text": "The primary purpose of this lab was to practice using the SPI protocol to communicate with a temperature sensor. With these readings, we would then use provided code to host a web server to both configure the precision of the sensor as well as display the latest readings. Lastly, there was also control of an LED using the web server."
   },
   {
-    "objectID": "labs/lab5/lab5.html",
-    "href": "labs/lab5/lab5.html",
-    "title": "Lab 5",
+    "objectID": "labs/lab6/lab6.html#overview",
+    "href": "labs/lab6/lab6.html#overview",
+    "title": "Lab 6",
     "section": "",
-    "text": "The primary purpose of this lab is to understand the fundamentals of interrupts. This was then applied to reading from a quadrature encoder. As the quadrature encoder has two channels, we design a multi-interrupt routine to gain accurate readings, and apply this to printing the speed of a DC motor."
+    "text": "The primary purpose of this lab was to practice using the SPI protocol to communicate with a temperature sensor. With these readings, we would then use provided code to host a web server to both configure the precision of the sensor as well as display the latest readings. Lastly, there was also control of an LED using the web server."
   },
   {
-    "objectID": "labs/lab5/lab5.html#overview",
-    "href": "labs/lab5/lab5.html#overview",
-    "title": "Lab 5",
-    "section": "",
-    "text": "The primary purpose of this lab is to understand the fundamentals of interrupts. This was then applied to reading from a quadrature encoder. As the quadrature encoder has two channels, we design a multi-interrupt routine to gain accurate readings, and apply this to printing the speed of a DC motor."
-  },
-  {
-    "objectID": "labs/lab5/lab5.html#design",
-    "href": "labs/lab5/lab5.html#design",
-    "title": "Lab 5",
+    "objectID": "labs/lab6/lab6.html#design",
+    "href": "labs/lab6/lab6.html#design",
+    "title": "Lab 6",
     "section": "Design",
-    "text": "Design\n\nBackground\nA quadrature encoder works by positioning two sensors 90 degrees apart from each other. This allows us to determine the direction of rotation of the motor, along with more granular readings of the motor’s position. From the datasheet of the motor, we know that the encoder has 12 counts per revolution. Translating this to the motor, we realize that there are 120 counts per revolution, as the motor has a 10:1 gear ratio.\nFundamentally, my design involved setting up interrupts and handlers to read from the encoder and update a global variable that stores the number of ‘ticks’. I implemented a basic lookup table to determine the direction of rotation based on the previous and current states of the encoder, allowing me to increment or decrement the tick count accordingly. From this, I set up the SysTick interrupt to print the current angular velocity of the motor every 1s. Ticks are converted to rpm by \\(\\text{rpm} = \\frac{\\text{ticks}}{120} \\times 60\\) since there are 120 ticks per revolution and 60s in a minute.\n\n\nInterrupts\nThere were three interrupts that I set up for this lab: PA5 and PA6 as inputs from the encoder, and SysTick as a timer interrupt. I chose PA5 and PA6 as not only are they 5V tolerant, but they are also configured on the same EXTI line, allowing me to use a single interrupt handler for both pins. The EXTI handler was used to read the current state of the encoder and update the tick count accordingly. Each time that it was triggered, the handler reads in the current values, and compares it with the previous state to reference a lookup table to determine the direction of rotation. Then, the tick count is either added or subtracted as needed. Then, the current state is stored as the previous state for the next interrupt, and the handler returns.\nThe SysTick interrupt was set up to trigger every 1ms, and every time the time counter reaches 1000, the rpm is calculated and printed to the console. After printing, the tick count is reset to 0, and the time counter is reset to 0.\nA key point to note is that the SysTick interrupt is set to a higher priority than the EXTI interrupt, as we want to ensure that the rpm is printed accurately every second.\nA flowchart of the interrupt routine is shown in @fig:interrupts.\n\n\n\n\nInterrupt Routine Flowchart"
+    "text": "Design\n\nSPI Communication\nThe bulk of the work for this lab was creating and debugging the SPI communication between the STM microcontroller and the temperature sensor. We were provided with a DS1722 sensor, as well as an ESP8266 module to host the web server.\nI had to write a SPI library to interface with the sensor. I created a function, initSpi, which takes in baud rate, polarity, and phase. I used PB3, 4, 5, and 7 as my SPI pins, chosen because they were easily accessible on the adaptor board. After this, I set up the clock signals, as well as the alternate function registers for the pins.\nThe circuit connections can be found in Figure 1\n\n\n\n\n\n\nFigure 1: Circuit Diagram\n\n\n\nThen, I wrote a spiSendReceive function, which takes in a byte to send, and returns the byte received.\n\n\nTemperature Sensor\nI built out a few additional functions to provide an interface with the temperature sensor without requiring the user to know the specifics of the SPI communication.\nThe first was an initTempSensor function, which calls the initSpi function, and then initializes the sensor, and sends a few SPI packets to set the sensor to 8-bit resolution.\nAnother was setPrecision, which takes in a byte, and sets the precision of the sensor to that value.\nThe last was readTemp, which reads the temperature from the sensor, and returns it as a float.\nOne key thing that I realized the hard way (through testings), is that despite mentioning the ‘sign bit’ in the datasheet, the temperature sensor actually stores the reading as a two’s complement number. Although this made the code quite straightforward (I could just read it in as a float and store the relevant bits), it was a bit frustrating to realize that the datasheet was misleading."
   },
   {
-    "objectID": "labs/lab5/lab5.html#analysis",
-    "href": "labs/lab5/lab5.html#analysis",
-    "title": "Lab 5",
+    "objectID": "labs/lab6/lab6.html#analysis",
+    "href": "labs/lab6/lab6.html#analysis",
+    "title": "Lab 6",
     "section": "Analysis",
-    "text": "Analysis\nAn alternative to the multi-interrupt routine exercised in this lab would be to use a timer-based polling approach. In fact, from my previous background, this would’ve been the first approach I would’ve taken. However, the multi-interrupt routine is more efficient, as it allows the MCU to perform other tasks while waiting for the encoder to trigger an interrupt. Further, the multi-interrupt routine is more accurate, as it can capture the exact moment the encoder changes state, rather than polling at a fixed rate.\nAccording to Valvano and Yerraballi, the periodic polling approach has an average latency of \\(T/2\\), where \\(T\\) is the period of the polling. On the other hand, the interrupt approach has an average latency of \\(T_{\\text{interrupt}}\\), where \\(T_{\\text{interrupt}}\\) is the time taken to service the interrupt, often significantly less than \\(T\\). This makes the interrupt approach more responsive and accurate than the polling approach.\nIn addition, the polling approach would require more power, as the MCU would have to constantly check the encoder’s state. This is in contrast to the interrupt approach, where the MCU can sleep until an interrupt is triggered, saving power. Typically, the polling approach should only be used if the IO cannot generate an interrupt, and the IO functions should be done in the background.\nHowever, in the use case for this lab, the interrupt approach is more efficient and accurate, making it the better choice."
+    "text": "Analysis\nWith all of the SPI communication working, I was able to read the temperature sensor and display the readings on the web server. There were a lot of minor issues that were hard to track down with the SPI interface, but it was really cool to have an end-to-end system working. An example SPI transaction read using a logic analyzer is shown in Figure 2.\n\n\n\n\n\n\nFigure 2: SPI Transaction\n\n\n\nOne thing that I would’ve liked to do is to have a more robust error handling system. Currently, if the SPI communication fails, the system just hangs. It would’ve been nice to have a watchdog timer or some other mechanism to reset the system if the SPI communication failed."
   },
   {
-    "objectID": "labs/lab5/lab5.html#conclusion",
-    "href": "labs/lab5/lab5.html#conclusion",
-    "title": "Lab 5",
+    "objectID": "labs/lab6/lab6.html#conclusion",
+    "href": "labs/lab6/lab6.html#conclusion",
+    "title": "Lab 6",
     "section": "Conclusion",
-    "text": "Conclusion\nOverall, I successfully implemented a multi-interrupt routine to read from a quadrature encoder and print the speed of a DC motor. I also learned the importance of interrupts and how they can be used to make the MCU more efficient and accurate. I spent around 9 hours on this lab."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html",
-    "href": "labs/lab3/lab3.html",
-    "title": "Lab 3",
-    "section": "",
-    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#overview",
-    "href": "labs/lab3/lab3.html#overview",
-    "title": "Lab 3",
-    "section": "",
-    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#design",
-    "href": "labs/lab3/lab3.html#design",
-    "title": "Lab 3",
-    "section": "Design",
-    "text": "Design\nThis was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldn’t have made sense to leave too many things together.\nThe first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.\nFor the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.\nThe first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.\nThe LUT for this was quite straight-forward, and did not require much thought on my part.\nThe control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: WAIT, INPUT, HOLD, DEBOUNCE. Any time the row input was not detected as 1111, the FSM proceeds to the INPUT state, and exerts the keyInputValid signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the INPUT state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the HOLD state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.\nThis debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementation, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.\nWith this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.\nFigure 1 shows the FSM logic, while Figure 2 shows the block diagram for my top module.\n\n\n\n\n\n\nFigure 1: FSM Diagram of column output and key decoding logic.\n\n\n\nThe table for this logic is as follows:\n\n\n\nCurrent State\nin\nNext State\nkeypadInput\n\n\n\n\nWAIT\n0\nWAIT\nx\n\n\nWAIT\n1\nINPUT\nLUT[{rows, cols}]\n\n\nINPUT\n0\nDEBOUNCE\nx\n\n\nINPUT\n1\nHOLD\nx\n\n\nHOLD\n0\nDEBOUNCE\nx\n\n\nHOLD\n1\nHOLD\nx\n\n\nDEBOUNCE\n0\nWAIT\nx\n\n\nDEBOUNCE\n1\nHOLD\nx\n\n\n\n\n\n\n\n\n\nFigure 2: Block Diagram of top level module.\n\n\n\nAs for the wiring of the circuit, the same calculations as Lab 2 were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in Figure 3\n\n\n\n\n\n\nFigure 3: Circuit diagram showing the connections in and out of the FPGA."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#testing",
-    "href": "labs/lab3/lab3.html#testing",
-    "title": "Lab 3",
-    "section": "Testing",
-    "text": "Testing\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module with a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#conclusion",
-    "href": "labs/lab3/lab3.html#conclusion",
-    "title": "Lab 3",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
-  },
-  {
-    "objectID": "labs/lab2/lab2.html",
-    "href": "labs/lab2/lab2.html",
-    "title": "Lab 2",
-    "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#overview",
-    "href": "labs/lab2/lab2.html#overview",
-    "title": "Lab 2",
-    "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#design",
-    "href": "labs/lab2/lab2.html#design",
-    "title": "Lab 2",
-    "section": "Design",
-    "text": "Design\nFor the SystemVerilog top module (lab2_vk), I only ended up using one submodule, the seven-segment display module created in Lab 1. I then used a similar counter from my ledDecoder to implement the time multiplexing. I also simply added together the values of the two switches to get the sum. The block diagram for this design can be seen in Figure 1:\n\n\n\n\n\n\nFigure 1: Block Diagram of my SystemVerilog Design\n\n\n\nAs for the circuit, it was largely based off of the values calculated from Lab 1. But, with the added transistors, there was the need for a current-limiting resistor. From the datasheet for the iCE40UP, we can determine that the maximum current draw should be 8 \\(mA\\). Plugging this into Ohm’s Law (\\(V = IR\\)), with \\(V = 3.3V\\) and I = \\(0.008A\\), we get that \\[\nR \\geq \\frac{3.3}{0.008} = 412.5\\Omega\n\\]\nWith the resistor values available in the lab, I went with \\(470 \\Omega\\) resistors. This schematic can be seen in Figure 2\n\n\n\n\n\n\nFigure 2: Circuit Diagram of my physical implementation"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#testing",
-    "href": "labs/lab2/lab2.html#testing",
-    "title": "Lab 2",
-    "section": "Testing",
-    "text": "Testing\nThe testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in \\(2^8 \\cdot 2 = 512\\) testcases. Thus this week, I wrote a Python script to generate the test vectors. The test results are below:\n\nWaveform\n\n\n\nResult"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#conclusion",
-    "href": "labs/lab2/lab2.html#conclusion",
-    "title": "Lab 2",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab."
-  },
-  {
-    "objectID": "labs/lab1/lab1.html",
-    "href": "labs/lab1/lab1.html",
-    "title": "Lab 1",
-    "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#overview",
-    "href": "labs/lab1/lab1.html#overview",
-    "title": "Lab 1",
-    "section": "",
-    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#design",
-    "href": "labs/lab1/lab1.html#design",
-    "title": "Lab 1",
-    "section": "Design",
-    "text": "Design\nFor the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an always_comb block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that led[0] and led[1] could be simplified to combinational logic using a XOR and AND gate respectively, so I designed that using an assign statement. However, for led[3], since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an always_ff block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off. This explanation can be visualized using the diagram below:\n\nAs for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff’s Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:\n\nThen, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff’s Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.\n\\[\nV = IR\n\\]\n\\[\nR_1 = \\frac{3.3-2.1}{0.02}=60\\Omega\n\\]\nThus, with this calculation, we know that each of the resistors in the circuit should be \\(60 \\Omega\\) ."
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#testing",
-    "href": "labs/lab1/lab1.html#testing",
-    "title": "Lab 1",
-    "section": "Testing",
-    "text": "Testing\nThe testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a testbench with all possible inputs simulated, and verified against the output. The test results are below:\n\nWaveform\n\n\n\nResult"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#conclusion",
-    "href": "labs/lab1/lab1.html#conclusion",
-    "title": "Lab 1",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
-  },
-  {
-    "objectID": "labs/lab_overview.html",
-    "href": "labs/lab_overview.html",
-    "title": "Labs Overview",
-    "section": "",
-    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
-  },
-  {
-    "objectID": "labs/lab_overview.html#background",
-    "href": "labs/lab_overview.html#background",
-    "title": "Labs Overview",
-    "section": "",
-    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
-  },
-  {
-    "objectID": "labs/lab_overview.html#labs",
-    "href": "labs/lab_overview.html#labs",
-    "title": "Labs Overview",
-    "section": "Labs",
-    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo\n\n\n5: Interrupts\nLab 5 Instructions\nLab 5 Report\nLab 5 Repo\n\n\n6: The Internet of Things and Serial Peripheral Interface\n\n\n\n\n\nLab 6 Instructions\nLab 6 Report\nLab 6 Repo"
+    "text": "Conclusion\nOverall, I suceeded in interfacing with the temperature sensor and displaying the readings on the web server. I also managed to control the LED using the web server, which was a nice touch. I learned a lot about SPI communication, and how to debug it, which will be useful in future projects. I spent 12 hours on this lab."
   },
   {
     "objectID": "labs/lab4/lab4.html",
@@ -238,59 +91,206 @@
     "text": "Conclusion\nMy design met all the requirements of the lab, and I was able to play both the provided piece and a custom piece. I learned a lot about timers and interrupts in the process, and spent around 25 hours on this lab."
   },
   {
-    "objectID": "labs/lab6/lab6.html",
-    "href": "labs/lab6/lab6.html",
-    "title": "Lab 6",
+    "objectID": "labs/lab2/lab2.html",
+    "href": "labs/lab2/lab2.html",
+    "title": "Lab 2",
     "section": "",
-    "text": "The primary purpose of this lab was to practice using the SPI protocol to communicate with a temperature sensor. With these readings, we would then use provided code to host a web server to both configure the precision of the sensor as well as display the latest readings. Lastly, there was also control of an LED using the web server."
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
   },
   {
-    "objectID": "labs/lab6/lab6.html#overview",
-    "href": "labs/lab6/lab6.html#overview",
-    "title": "Lab 6",
+    "objectID": "labs/lab2/lab2.html#overview",
+    "href": "labs/lab2/lab2.html#overview",
+    "title": "Lab 2",
     "section": "",
-    "text": "The primary purpose of this lab was to practice using the SPI protocol to communicate with a temperature sensor. With these readings, we would then use provided code to host a web server to both configure the precision of the sensor as well as display the latest readings. Lastly, there was also control of an LED using the web server."
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nLearn about and implement time multiplexing to drive two seven-segment displays\nUse transistors to provide greater current to drive the displays using FPGA GPIO Pins\n\nThis involved not only reading datasheets and refreshing my memory on what transistors are and how they work, but also understanding the logic behind using time to multiplex a signal and how I can wire up the circuit. It also required a little bit of thought into the frequency at which I could switch between the two displays to avoide both flickering and bleeding.\nI wrote a testbench for this lab as well, and this time I wrote a Python script to generate my test cases!"
   },
   {
-    "objectID": "labs/lab6/lab6.html#design",
-    "href": "labs/lab6/lab6.html#design",
-    "title": "Lab 6",
+    "objectID": "labs/lab2/lab2.html#design",
+    "href": "labs/lab2/lab2.html#design",
+    "title": "Lab 2",
     "section": "Design",
-    "text": "Design\n\nSPI Communication\nThe bulk of the work for this lab was creating and debugging the SPI communication between the STM microcontroller and the temperature sensor. We were provided with a DS1722 sensor, as well as an ESP8266 module to host the web server.\nI had to write a SPI library to interface with the sensor. I created a function, initSpi, which takes in baud rate, polarity, and phase. I used PB3, 4, 5, and 7 as my SPI pins, chosen because they were easily accessible on the adaptor board. After this, I set up the clock signals, as well as the alternate function registers for the pins.\nThen, I wrote a spiSendReceive function, which takes in a byte to send, and returns the byte received.\n\n\nTemperature Sensor\nI built out a few additional functions to provide an interface with the temperature sensor without requiring the user to know the specifics of the SPI communication.\nThe first was an initTempSensor function, which calls the initSpi function, and then initializes the sensor, and sends a few SPI packets to set the sensor to 8-bit resolution.\nAnother was setPrecision, which takes in a byte, and sets the precision of the sensor to that value.\nThe last was readTemp, which reads the temperature from the sensor, and returns it as a float.\nOne key thing that I realized the hard way (through testings), is that despite mentioning the ‘sign bit’ in the datasheet, the temperature sensor actually stores the reading as a two’s complement number. Although this made the code quite straightforward (I could just read it in as a float and store the relevant bits), it was a bit frustrating to realize that the datasheet was misleading."
+    "text": "Design\nFor the SystemVerilog top module (lab2_vk), I only ended up using one submodule, the seven-segment display module created in Lab 1. I then used a similar counter from my ledDecoder to implement the time multiplexing. I also simply added together the values of the two switches to get the sum. The block diagram for this design can be seen in Figure 1:\n\n\n\n\n\n\nFigure 1: Block Diagram of my SystemVerilog Design\n\n\n\nAs for the circuit, it was largely based off of the values calculated from Lab 1. But, with the added transistors, there was the need for a current-limiting resistor. From the datasheet for the iCE40UP, we can determine that the maximum current draw should be 8 \\(mA\\). Plugging this into Ohm’s Law (\\(V = IR\\)), with \\(V = 3.3V\\) and I = \\(0.008A\\), we get that \\[\nR \\geq \\frac{3.3}{0.008} = 412.5\\Omega\n\\]\nWith the resistor values available in the lab, I went with \\(470 \\Omega\\) resistors. This schematic can be seen in Figure 2\n\n\n\n\n\n\nFigure 2: Circuit Diagram of my physical implementation"
   },
   {
-    "objectID": "labs/lab6/lab6.html#analysis",
-    "href": "labs/lab6/lab6.html#analysis",
-    "title": "Lab 6",
-    "section": "Analysis",
-    "text": "Analysis\nWith all of the SPI communication working, I was able to read the temperature sensor and display the readings on the web server. There were a lot of minor issues that were hard to track down with the SPI interface, but it was really cool to have an end-to-end system working. An example SPI transaction read using a logic analyzer is shown in Figure 1.\n\n\n\n\n\n\nSPI Transaction\n\n\n\n\nFigure 1\n\n\n\nOne thing that I would’ve liked to do is to have a more robust error handling system. Currently, if the SPI communication fails, the system just hangs. It would’ve been nice to have a watchdog timer or some other mechanism to reset the system if the SPI communication failed."
+    "objectID": "labs/lab2/lab2.html#testing",
+    "href": "labs/lab2/lab2.html#testing",
+    "title": "Lab 2",
+    "section": "Testing",
+    "text": "Testing\nThe testing for this lab was a little more complicated than Lab 1. There were two states to check, along with 8 input bits and the output sum as well. This would result in \\(2^8 \\cdot 2 = 512\\) testcases. Thus this week, I wrote a Python script to generate the test vectors. The test results are below:\n\nWaveform\n\n\n\nResult"
   },
   {
-    "objectID": "labs/lab6/lab6.html#conclusion",
-    "href": "labs/lab6/lab6.html#conclusion",
-    "title": "Lab 6",
+    "objectID": "labs/lab2/lab2.html#conclusion",
+    "href": "labs/lab2/lab2.html#conclusion",
+    "title": "Lab 2",
     "section": "Conclusion",
-    "text": "Conclusion\nOverall, I suceeded in interfacing with the temperature sensor and displaying the readings on the web server. I also managed to control the LED using the web server, which was a nice touch. I learned a lot about SPI communication, and how to debug it, which will be useful in future projects. I spent 12 hours on this lab."
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 13 hours on this lab."
   },
   {
-    "objectID": "posts/first-post.html",
-    "href": "posts/first-post.html",
-    "title": "Hello Quarto",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
     "section": "",
-    "text": "Hello World!"
+    "text": "Vikram Krishna is a student at Harvey Mudd College studying Engineering and Computer Science. He has had extensive experience designing performant systems, machine learning models, and low-latency algorithms. He is also a Clay-Wolkin Fellow, where he helps design and improve an open source RISC-V Processor. His personal interests include going hiking, watching Formula 1, and playing video games."
   },
   {
-    "objectID": "posts/week1-reflection.html",
-    "href": "posts/week1-reflection.html",
-    "title": "Week 1 Reflection",
-    "section": "",
-    "text": "This week I learned how to create testbenches! It was briefly mentioned during my time in E85, however generally we were provided with a testbench that generated a hash to check if our solution was correct. This is not the case in this class hwoever, and part of the specifications is to either manually apply signals to the module or create a self-checking testbench.\nI modeled mine after the ones provided in E85, as well as those explained in Digital Design and Computer Architecture by David Harris and Sarah Harris (one of my favorite textbooks), and created a seperate file for test vectors, and kept an error counter to provide an easy, concise summary at the end.\nMy testbench worked well, and this was a good lab to test it on, given the limited set of possible inputs. I’m glad to have this skill in nmy toolkit as a Computer Enginer, and certainly look forward to improving on it throughout the rest of this course."
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Home",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\nHarvey Mudd CollegeB.S. in Engineering and Computer Science\nClaremont, CAAug 2022 - May 2026"
   },
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Home",
+    "section": "Experience",
+    "text": "Experience\n\n\n\nHarvey Mudd College | Clay-Wolkin Fellow\nMay 2024 - Present\n\n\nBloomberg LP | Software Engineer\nJune 2024 - Aug 2024\n\n\nAirGuard Industries | Data Scientist\nJune 2021 - May 2024"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
     "section": "",
-    "text": "Course Website:  Link"
+    "text": "Week 2 Reflection\n\n\n\n\n\nAutomated Testing\n\n\n\n\n\nSep 11, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1 Reflection\n\n\n\n\n\nTestbenches\n\n\n\n\n\nSep 9, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nPre-Course Reflection\n\n\n\n\n\nLooking at what I want to achieve from this course\n\n\n\n\n\nSep 4, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\n\n\n\n\n\n\nHello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 28, 2024\n\n\nVikram Krishna\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#overview",
+    "href": "labs/lab1/lab1.html#overview",
+    "title": "Lab 1",
+    "section": "",
+    "text": "Per the guidelines provided, the main goals of this lab were to:\n\nAssemble the E155 Dev Board\nWrite a SystemVerilog Module to control a seven segment display and execute LED logic\nProgram an FPGA with the Module created\nGain confidence in building, assembling, testing, and debugging circuits\nInterface a seven segment display to the board\n\nWith this in mind, my first task was to solder the dev board. Although I’ve had a lot of experience with through-hole soldering, there were quite a few surface mount components that had to be soldered. This posed itself to be quite the tall task, and I certainly made mistakes. These mistakes were only discovered, though, through testing and debugging. I realized there were a couple of cold joints, as well as some diodes placed in the wrong orientation.\nAfter soldering, I managed to write the SystemVerilog module, flash it, and run it successfully and my new board!"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#design",
+    "href": "labs/lab1/lab1.html#design",
+    "title": "Lab 1",
+    "section": "Design",
+    "text": "Design\nFor the SystemVerilog module, I realized there were two main devices I was controlling with the switches: three LEDs, and one 7-segment display. As a result, I split the code into three modules, one for each device and one top module. To program the 7-segment display, I used an always_comb block, resulting in the display changing output as soon as any of the switches are changed. On the other hand, the LEDs required some additional manipulation. I noticed that led[0] and led[1] could be simplified to combinational logic using a XOR and AND gate respectively, so I designed that using an assign statement. However, for led[3], since it was required to blink at 2.4Hz, given an oscillator-generated clock of 48MHz, I required an always_ff block used in conjunction with a counter and an internal logic variable to keep track of whether the light should be on or off. This explanation can be visualized using the diagram below:\n\nAs for the circuit, particular care had to be taken in the connection of the 7-segment display. To begin with, I realized that each segment needed to have its own resistor, rather than having a shared resistor when connecting the anode. This is due to Kirchoff’s Junction Law, which tells us that the current going into a junction will be equal to the current leaving the junction. Since there would be a standard amount of current from the anode, if there was a common resistor, it would result in differences in the brightness of segments, if only one segment was illuminated, as opposed to all seven being lit up. This consideration resulted in the following circuit diagram:\n\nThen, to determine the value of each resistor, we can do some math, while taking into account that by Kirchoff’s Junction law, each branch receives the 3.3V, and that from the datasheet, the forward voltage across a segment is 2.1V. From the datasheet, we can also determine that the ideal current should be 20mA.\n\\[\nV = IR\n\\]\n\\[\nR_1 = \\frac{3.3-2.1}{0.02}=60\\Omega\n\\]\nThus, with this calculation, we know that each of the resistors in the circuit should be \\(60 \\Omega\\) ."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#testing",
+    "href": "labs/lab1/lab1.html#testing",
+    "title": "Lab 1",
+    "section": "Testing",
+    "text": "Testing\nThe testing for this lab was quite straightforward, given the only inputs were four switches, resulting in 16 possible combinations. In order to test, I wrote a testbench with all possible inputs simulated, and verified against the output. The test results are below:\n\nWaveform\n\n\n\nResult"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#conclusion",
+    "href": "labs/lab1/lab1.html#conclusion",
+    "title": "Lab 1",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 7 hours working on this lab."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html",
+    "href": "labs/lab3/lab3.html",
+    "title": "Lab 3",
+    "section": "",
+    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#overview",
+    "href": "labs/lab3/lab3.html#overview",
+    "title": "Lab 3",
+    "section": "",
+    "text": "From the lab manual, this lab was the culmination of the first three weeks of class, combining all the techniques we’ve learned so far. The goals were to read from a matrix keypad, and display both the latest and the previous inputs. The signal had to be debounced, as mechanical switches are especially susceptible to bouncing."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#design",
+    "href": "labs/lab3/lab3.html#design",
+    "title": "Lab 3",
+    "section": "Design",
+    "text": "Design\nThis was the first time I made appropriate use of submodules. Especially given the amount of logic going into this design, it wouldn’t have made sense to leave too many things together.\nThe first two modules I imported from previous labs were the clock divider as well as the seven segment decoder. Further, I also implemented an enabled- and resettable-flop. This used a fairly standard design that I learned in E85 (Digital Design and Computer Architecture). I decided to use the flops to store the current and previous values as it would be easy to activate them for one clock cycle depending on the state of my keypad decoding FSM.\nFor the keypad decoding FSM, I must admit I think my SystemVerilog isn’t the cleanest it could be. If you looked at my commit history this was probably the file with the most changes, that were implemented as I noticed more bugs and flaws in my reasoning during testing.\nThe first step was how to actually scan inputs from the keypad. The matrix is connected by rows and columns, so I chose to sample by setting each column to LOW, and reading the rows to see if any of them are input as 0. Since the FPGA uses active high inputs, if the keypad has a button pressed, when sampling that column the corresponding row would be connected by the button press, resulting in a LOW input.\nThe LUT for this was quite straight-forward, and did not require much thought on my part.\nThe control for how the columns are sampled though, is where the logic gets tricky. The way I implemented it, I had a button-input FSM with 4 states: WAIT, INPUT, HOLD, DEBOUNCE. Any time the row input was not detected as 1111, the FSM proceeds to the INPUT state, and exerts the keyInputValid signal. This signal serves as the enable to my flops, allowing them to store the value for once cycle. After the INPUT state, the FSM enters a loop where it stays in a holding state, and even when the input is no longer detected, it goes into a debounce state where it has the chance to recover to the HOLD state if the signal is detected again after one clock cycle. The clock input to this module was slowed down down 96Hz, such that the period is ~1ms, allowing for a bounce of up to 2ms.\nThis debouncing method of adding another state to the FSM was quite straightforward, since the FSM already had 3 states so adding another wasn’t too expensive. Further, it allows for the circuit to keep running without freezing up. Upon talking to Prof. Brake as well as other classmates, I heard some discussion about using a counter to wait a certain amount of time when the input is no longer detected. However, I felt that although this logic would improve the response time and how quickly buttons can be pressed, it would be very complicated in terms of hardware implementation, as the FSM would need to be linked with a counter or another FSM to halt progression. I believe that my method to deal with debouncing was efficient in encoding, and although performance could likely be improved, works for a large majority of realistic use cases.\nWith this logic, the column sampling was implemented with a simple adder, where if the next state was set to be input, we proceed to the next column. However, if the next state is set to any of the other three states, we stay setting the current column so we can accurately detect the input and see if the key is still being pressed.\nFigure 1 shows the FSM logic, while Figure 2 shows the block diagram for my top module.\n\n\n\n\n\n\nFigure 1: FSM Diagram of column output and key decoding logic.\n\n\n\nThe table for this logic is as follows:\n\n\n\nCurrent State\nin\nNext State\nkeypadInput\n\n\n\n\nWAIT\n0\nWAIT\nx\n\n\nWAIT\n1\nINPUT\nLUT[{rows, cols}]\n\n\nINPUT\n0\nDEBOUNCE\nx\n\n\nINPUT\n1\nHOLD\nx\n\n\nHOLD\n0\nDEBOUNCE\nx\n\n\nHOLD\n1\nHOLD\nx\n\n\nDEBOUNCE\n0\nWAIT\nx\n\n\nDEBOUNCE\n1\nHOLD\nx\n\n\n\n\n\n\n\n\n\nFigure 2: Block Diagram of top level module.\n\n\n\nAs for the wiring of the circuit, the same calculations as Lab 2 were used to set up the seven segment display and transistors. The row and column pins of the matrix keypad were connected directly to the FPGA, as shown in Figure 3\n\n\n\n\n\n\nFigure 3: Circuit diagram showing the connections in and out of the FPGA."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#testing",
+    "href": "labs/lab3/lab3.html#testing",
+    "title": "Lab 3",
+    "section": "Testing",
+    "text": "Testing\nFor this lab, inspired by Prof. Brake’s advice, I implemented unit testing. Instead of making a massive test file for my top module with a variety of inputs, I decided to test each of my submodules and make sure it’s working as intended. Further, the clock divider as well as the seven segment decoder modules had already been tested in previous labs. Thus, I only needed to test my valueFSM. This waveform can be seen below:\n\nWaveform\n\nSince the use case can get complicated to simulate, I wrote a manual testbench with signals to see what the output looks like. These signals could be repeated at different times to cover all possible inputs. But the important thing to recognize is that as design, the FSM asserts the keypad value for exactly one cycle, and then reverts to its idle state to ensure the flops get the correct values at the correct times."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#conclusion",
+    "href": "labs/lab3/lab3.html#conclusion",
+    "title": "Lab 3",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy design was successful in meeting all the requirements for this lab. I also believe I succeeded in meeting the goals of the overall lab. I spent 23 hours on this lab."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html",
+    "href": "labs/lab5/lab5.html",
+    "title": "Lab 5",
+    "section": "",
+    "text": "The primary purpose of this lab is to understand the fundamentals of interrupts. This was then applied to reading from a quadrature encoder. As the quadrature encoder has two channels, we design a multi-interrupt routine to gain accurate readings, and apply this to printing the speed of a DC motor."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#overview",
+    "href": "labs/lab5/lab5.html#overview",
+    "title": "Lab 5",
+    "section": "",
+    "text": "The primary purpose of this lab is to understand the fundamentals of interrupts. This was then applied to reading from a quadrature encoder. As the quadrature encoder has two channels, we design a multi-interrupt routine to gain accurate readings, and apply this to printing the speed of a DC motor."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#design",
+    "href": "labs/lab5/lab5.html#design",
+    "title": "Lab 5",
+    "section": "Design",
+    "text": "Design\n\nBackground\nA quadrature encoder works by positioning two sensors 90 degrees apart from each other. This allows us to determine the direction of rotation of the motor, along with more granular readings of the motor’s position. From the datasheet of the motor, we know that the encoder has 12 counts per revolution. Translating this to the motor, we realize that there are 120 counts per revolution, as the motor has a 10:1 gear ratio.\nFundamentally, my design involved setting up interrupts and handlers to read from the encoder and update a global variable that stores the number of ‘ticks’. I implemented a basic lookup table to determine the direction of rotation based on the previous and current states of the encoder, allowing me to increment or decrement the tick count accordingly. From this, I set up the SysTick interrupt to print the current angular velocity of the motor every 1s. Ticks are converted to rpm by \\(\\text{rpm} = \\frac{\\text{ticks}}{120} \\times 60\\) since there are 120 ticks per revolution and 60s in a minute.\n\n\nInterrupts\nThere were three interrupts that I set up for this lab: PA5 and PA6 as inputs from the encoder, and SysTick as a timer interrupt. I chose PA5 and PA6 as not only are they 5V tolerant, but they are also configured on the same EXTI line, allowing me to use a single interrupt handler for both pins. The EXTI handler was used to read the current state of the encoder and update the tick count accordingly. Each time that it was triggered, the handler reads in the current values, and compares it with the previous state to reference a lookup table to determine the direction of rotation. Then, the tick count is either added or subtracted as needed. Then, the current state is stored as the previous state for the next interrupt, and the handler returns.\nThe SysTick interrupt was set up to trigger every 1ms, and every time the time counter reaches 1000, the rpm is calculated and printed to the console. After printing, the tick count is reset to 0, and the time counter is reset to 0.\nA key point to note is that the SysTick interrupt is set to a higher priority than the EXTI interrupt, as we want to ensure that the rpm is printed accurately every second.\nA flowchart of the interrupt routine is shown in Figure 1.\n\n\n\n\n\n\nFigure 1: Interrupt Routine Flowchart\n\n\n\n\n\nCircuit\nThe layout for this circuit was quite straightforward, as the encoder could be connected direcctly to the power supply as well as the pins from the MicroController. Since the pins selected are 5V tolerant, they can take the input from the encoder without needing any additional voltage diving circuit. This diagram can be seen in Figure 2\n\n\n\n\n\n\nFigure 2: Circuit Diagram"
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#analysis",
+    "href": "labs/lab5/lab5.html#analysis",
+    "title": "Lab 5",
+    "section": "Analysis",
+    "text": "Analysis\nAn alternative to the multi-interrupt routine exercised in this lab would be to use a timer-based polling approach. In fact, from my previous background, this would’ve been the first approach I would’ve taken. However, the multi-interrupt routine is more efficient, as it allows the MCU to perform other tasks while waiting for the encoder to trigger an interrupt. Further, the multi-interrupt routine is more accurate, as it can capture the exact moment the encoder changes state, rather than polling at a fixed rate.\nAccording to Valvano and Yerraballi, the periodic polling approach has an average latency of \\(T/2\\), where \\(T\\) is the period of the polling. On the other hand, the interrupt approach has an average latency of \\(T_{\\text{interrupt}}\\), where \\(T_{\\text{interrupt}}\\) is the time taken to service the interrupt, often significantly less than \\(T\\). This makes the interrupt approach more responsive and accurate than the polling approach.\nIn addition, the polling approach would require more power, as the MCU would have to constantly check the encoder’s state. This is in contrast to the interrupt approach, where the MCU can sleep until an interrupt is triggered, saving power. Typically, the polling approach should only be used if the IO cannot generate an interrupt, and the IO functions should be done in the background.\nHowever, in the use case for this lab, the interrupt approach is more efficient and accurate, making it the better choice."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#conclusion",
+    "href": "labs/lab5/lab5.html#conclusion",
+    "title": "Lab 5",
+    "section": "Conclusion",
+    "text": "Conclusion\nOverall, I successfully implemented a multi-interrupt routine to read from a quadrature encoder and print the speed of a DC motor. I also learned the importance of interrupts and how they can be used to make the MCU more efficient and accurate. I spent around 9 hours on this lab."
+  },
+  {
+    "objectID": "labs/lab_overview.html",
+    "href": "labs/lab_overview.html",
+    "title": "Labs Overview",
+    "section": "",
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+  },
+  {
+    "objectID": "labs/lab_overview.html#background",
+    "href": "labs/lab_overview.html#background",
+    "title": "Labs Overview",
+    "section": "",
+    "text": "The Microprocessor Systems class at Harvey Mudd employs a lab-based approach to testing absorption of material. As a result of this, there are seven labs covering a wide variety of topics, each of which has clear guidelines and a report. Below, links can be found to the original task and the corresponding write-up for my submission."
+  },
+  {
+    "objectID": "labs/lab_overview.html#labs",
+    "href": "labs/lab_overview.html#labs",
+    "title": "Labs Overview",
+    "section": "Labs",
+    "text": "Labs\n\n\n\nLab Number\nInstructions\nReport\nGithub Repo\n\n\n\n\n1: FPGA and MCU Setup and Testing\nLab 1 Instructions\nLab 1 Report\nLab 1 Repo\n\n\n2: Multiplexed 7-Segment Display\nLab 2 Instructions\nLab 2 Report\nLab 2 Repo\n\n\n3: Keypad Scanner\nLab 3 Instructions\nLab 3 Report\nLab 3 Repo\n\n\n4: Digital Audio\nLab 4 Instructions\nLab 4 Report\nLab 4 Repo\n\n\n5: Interrupts\nLab 5 Instructions\nLab 5 Report\nLab 5 Repo\n\n\n6: The Internet of Things and Serial Peripheral Interface\n\n\n\n\n\nLab 6 Instructions\nLab 6 Report\nLab 6 Repo"
+  },
+  {
+    "objectID": "posts/initial-reflections.html",
+    "href": "posts/initial-reflections.html",
+    "title": "Pre-Course Reflection",
+    "section": "",
+    "text": "Coming into Mudd, I was dead set on pursuing robotics. I always enjoyed it in High School and thought that’s what I wanted to do for the rest of my life. I even set up my own major in Engineering and Computer Science to help facilitate this and enable me to take more relevant courses.\nHowever, all of this changed when I took E85 — Digital Electronics and Computer Architecture. Something about the logic paths and thinking about the microarchitecture really spoke to me. Since then, I have been selected as a Clay-Wolking fellow, and want to further pursue my newfound interest in this field.\nWith this in mind, I have a couple of primary goals that I want to achieve to think of my time in E155 as successful:\n\nBecome a lot more comfortable writing SystemVerilog, keeping in mind it’s meant for synthesis of hardware\nBuild my ability to plan out and reason through datapaths\nLearn new communication protocols and other specifics of microarchitecture\nCreate a cool final project!\n\nAs with all things, I believe that the best way to learn and improve my skills is by applying it, and I can’t wait to do that within this course!"
+  },
+  {
+    "objectID": "posts/week2-reflection.html",
+    "href": "posts/week2-reflection.html",
+    "title": "Week 2 Reflection",
+    "section": "",
+    "text": "Building on what I did last week, I think I’m getting pretty good at creating testbenches now. I had no issues this time, and given the larger number of inputs and outputs, I had a lot of cases to test. In order to generate this, I tapped into some of my background in CS, and wrote a Python script to iterate through all the permutations of the possible inputs and states of the time multiplexing, and spit out a .tv file with all the inputs.\nI think it was certainly a cool experience and I had to think out how to go about this, but it worked and it felt extremely satisfying to look at the waveform with all green!\nGoing forward though, I think I’ll tap into another aspect of my CS background and implement unit testing. I’m getting more used to seperating the hierarchy of my SystemVerilog code, building out modules and submodules, and as I keep the DUT just for wiring the submodules together, it should be easy to create seperate testbenches and ensuring correct functionality of each module on its own."
   }
 ]

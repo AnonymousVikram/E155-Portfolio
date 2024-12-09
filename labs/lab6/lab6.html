@@ -195,6 +195,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="spi-communication">SPI Communication</h3>
 <p>The bulk of the work for this lab was creating and debugging the SPI communication between the STM microcontroller and the temperature sensor. We were provided with a DS1722 sensor, as well as an ESP8266 module to host the web server.</p>
 <p>I had to write a SPI library to interface with the sensor. I created a function, <code>initSpi</code>, which takes in baud rate, polarity, and phase. I used PB3, 4, 5, and 7 as my SPI pins, chosen because they were easily accessible on the adaptor board. After this, I set up the clock signals, as well as the alternate function registers for the pins.</p>
+<p>The circuit connections can be found in <a href="#fig-circuit" class="quarto-xref">Figure&nbsp;1</a></p>
+<div id="fig-circuit" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/circuit.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Circuit Diagram
+</figcaption>
+</figure>
+</div>
 <p>Then, I wrote a <code>spiSendReceive</code> function, which takes in a byte to send, and returns the byte received.</p>
 </section>
 <section id="temperature-sensor" class="level3">
@@ -208,19 +219,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>With all of the SPI communication working, I was able to read the temperature sensor and display the readings on the web server. There were a lot of minor issues that were hard to track down with the SPI interface, but it was really cool to have an end-to-end system working. An example SPI transaction read using a logic analyzer is shown in <a href="#fig-spi" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p>With all of the SPI communication working, I was able to read the temperature sensor and display the readings on the web server. There were a lot of minor issues that were hard to track down with the SPI interface, but it was really cool to have an end-to-end system working. An example SPI transaction read using a logic analyzer is shown in <a href="#fig-spi" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div id="fig-spi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-spi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/spi.png" class="img-fluid figure-img"></p>
-<figcaption>SPI Transaction</figcaption>
-</figure>
+<img src="images/spi.png" class="img-fluid figure-img">
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-spi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-spi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: SPI Transaction
 </figcaption>
 </figure>
 </div>

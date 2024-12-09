@@ -186,6 +186,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#interrupts" id="toc-interrupts" class="nav-link" data-scroll-target="#interrupts">Interrupts</a></li>
+  <li><a href="#circuit" id="toc-circuit" class="nav-link" data-scroll-target="#circuit">Circuit</a></li>
   </ul></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
@@ -230,14 +231,30 @@ window.Quarto = {
 <p>There were three interrupts that I set up for this lab: PA5 and PA6 as inputs from the encoder, and SysTick as a timer interrupt. I chose PA5 and PA6 as not only are they 5V tolerant, but they are also configured on the same EXTI line, allowing me to use a single interrupt handler for both pins. The EXTI handler was used to read the current state of the encoder and update the tick count accordingly. Each time that it was triggered, the handler reads in the current values, and compares it with the previous state to reference a lookup table to determine the direction of rotation. Then, the tick count is either added or subtracted as needed. Then, the current state is stored as the previous state for the next interrupt, and the handler returns.</p>
 <p>The SysTick interrupt was set up to trigger every 1ms, and every time the time counter reaches 1000, the rpm is calculated and printed to the console. After printing, the tick count is reset to 0, and the time counter is reset to 0.</p>
 <p>A key point to note is that the SysTick interrupt is set to a higher priority than the EXTI interrupt, as we want to ensure that the rpm is printed accurately every second.</p>
-<p>A flowchart of the interrupt routine is shown in <span class="citation" data-cites="fig:interrupts">@fig:interrupts</span>.</p>
-<div id="fig:interrupts">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/interrupts.png" class="img-fluid figure-img"></p>
-<figcaption>Interrupt Routine Flowchart</figcaption>
+<p>A flowchart of the interrupt routine is shown in <a href="#fig-interrupts" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div id="fig-interrupts" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-interrupts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/interrupts.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interrupts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Interrupt Routine Flowchart
+</figcaption>
 </figure>
 </div>
+</section>
+<section id="circuit" class="level3">
+<h3 class="anchored" data-anchor-id="circuit">Circuit</h3>
+<p>The layout for this circuit was quite straightforward, as the encoder could be connected direcctly to the power supply as well as the pins from the MicroController. Since the pins selected are 5V tolerant, they can take the input from the encoder without needing any additional voltage diving circuit. This diagram can be seen in <a href="#fig-circuit" class="quarto-xref">Figure&nbsp;2</a></p>
+<div id="fig-circuit" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/circuit.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Circuit Diagram
+</figcaption>
+</figure>
 </div>
 </section>
 </section>
