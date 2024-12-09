@@ -41,12 +41,23 @@ After printing, the tick count is reset to 0, and the time counter is reset to 0
 
 A key point to note is that the SysTick interrupt is set to a higher priority than the EXTI interrupt, as we want to ensure that the rpm is printed accurately every second.
 
-A flowchart of the interrupt routine is shown in  @fig:interrupts.
+A flowchart of the interrupt routine is shown in  @fig-interrupts.
 
-::: {#fig:interrupts}
-![Interrupt Routine Flowchart](images/interrupts.png)
+::: {#fig-interrupts}
+![](images/interrupts.png)
+
+Interrupt Routine Flowchart
 :::
 
+### Circuit
+
+The layout for this circuit was quite straightforward, as the encoder could be connected direcctly to the power supply as well as the pins from the MicroController. Since the pins selected are 5V tolerant, they can take the input from the encoder without needing any additional voltage diving circuit. This diagram can be seen in @fig-circuit
+
+::: {#fig-circuit}
+![](images/circuit.png)
+
+Circuit Diagram
+:::
 
 ## Analysis
 

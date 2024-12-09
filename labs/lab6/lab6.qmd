@@ -25,6 +25,14 @@ I had to write a SPI library to interface with the sensor. I created a function,
 I used PB3, 4, 5, and 7 as my SPI pins, chosen because they were easily accessible on the adaptor board.
 After this, I set up the clock signals, as well as the alternate function registers for the pins.
 
+The circuit connections can be found in @fig-circuit
+
+::: { #fig-circuit}
+![](images/circuit.png)
+
+Circuit Diagram
+:::
+
 Then, I wrote a `spiSendReceive` function, which takes in a byte to send, and returns the byte received.
 
 ### Temperature Sensor
@@ -34,6 +42,7 @@ I built out a few additional functions to provide an interface with the temperat
 The first was an `initTempSensor` function, which calls the `initSpi` function, and then initializes the sensor, and sends a few SPI packets to set the sensor to 8-bit resolution.
 
 Another was `setPrecision`, which takes in a byte, and sets the precision of the sensor to that value.
+
 
 The last was `readTemp`, which reads the temperature from the sensor, and returns it as a float.
 
@@ -45,7 +54,9 @@ With all of the SPI communication working, I was able to read the temperature se
 An example SPI transaction read using a logic analyzer is shown in @fig-spi.
 
 ::: {#fig-spi}
-![SPI Transaction](images/spi.png)
+![](images/spi.png)
+
+SPI Transaction
 :::
 
 One thing that I would've liked to do is to have a more robust error handling system. Currently, if the SPI communication fails, the system just hangs. It would've been nice to have a watchdog timer or some other mechanism to reset the system if the SPI communication failed.
